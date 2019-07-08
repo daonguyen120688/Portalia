@@ -1,0 +1,34 @@
+{
+  "MessageID": 1920,
+  "ApplicationName": "Portalia",
+  "ApplicationId": 435,
+  "Name": "RemindCandidateToSubmitWorkContract",
+  "HoldingId": 13,
+  "IsMultibranding": false,
+  "IsConfidential": false,
+  "LayoutId": 11,
+  "Tags": "@Model.FirstName;@Model.WorkContractUrl",
+  "Recipients": "@Model.UserPersonalEmail",
+  "RecipientsCc": null,
+  "RecipientsBcc": null,
+  "FromAddress": "contact@portalia.fr",
+  "ReplyTo": null,
+  "CreatedDate": "2019-04-10T09:11:44.0188159",
+  "UpdatedDate": "2019-05-29T03:56:34.7328994",
+  "CreatedById": 8153,
+  "UpdatedById": 11463,
+  "MailDelegationStatusId": 1,
+  "MessageTemplateLanguages": [
+    {
+      "MessageLanguageID": 2333,
+      "Subject": "[Portalia] Avez-vous envoyé vos informations de contrat de travail ?",
+      "Content": "<p class=\"MsoNormal\"><span lang=\"FR\">Bonjour <b>@Model.FirstName</b>,<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Votre formulaired’informations de contrat de travail vous attend toujours dans </span><a href=\"@Model.WorkContractUrl\"><span lang=\"FR\">votre espace portalia</span></a><span lang=\"FR\" style=\"color:#0070C0;mso-ansi-language:FR\">. </span><span lang=\"FR\">Vous pouvez l’éditer et nous l’envoyer afin quenous puissions débuter rapidement votre contrat.<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Si vous avez lamoindre question, vous pouvez nous contacter à l’adresse </span><a href=\"mailto:PORTALIA_HR@PORTALIA.FR\"><span lang=\"FR\">portalia_hr@portalia.fr</span></a><span lang=\"FR\"> pour que nous puissions vous aider.<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Nous vous souhaitons une belle journée,<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"EN-GB\">L’équipe Portalia<o:p></o:p></span></p>",
+      "LanguageID": "en",
+      "CreatedDate": "2019-04-10T09:11:44.0198157",
+      "UpdatedDate": "2019-05-29T03:58:58.9589419",
+      "CreatedById": 8153,
+      "UpdatedById": 11463
+    }
+  ],
+  "PriorityId": 2
+}

@@ -1,0 +1,49 @@
+﻿@using Portalia.Core.Enum
+@model Portalia.Core.Enum.WorkContractStatusEnum
+
+@{ 
+    bool isAdmin = User.IsInRole("Administrator");
+}
+
+<header id="head" class="secondary"></header>
+
+<div class="container">
+    <div class="row row__error">
+        <div class="col-md-12">
+            <p>
+                <b class="h3">
+                @if (isAdmin && Model == WorkContractStatusEnum.Validated)
+                {
+                    @:You cannot access the form.
+                }
+                else if(Model == WorkContractStatusEnum.Disabled)
+                {
+                    @:Le formulaire n'est plus disponible
+                }
+                else
+                {
+                    @:Vous ne pouvez pas accéder au formulaire.
+                }
+                </b>
+            </p>
+            @switch (Model)
+            {
+                case WorkContractStatusEnum.Disabled:
+                    <p>Désolé, le formulaire a été fermé par l'administrateur.</p>
+                    <p>Si vous pensez que c'est une erreur, contactez-nous.</p>
+                    break;
+                case WorkContractStatusEnum.Validated:
+                    if (isAdmin)
+                    {
+                        <p>This form is not available anymore. The information is ready for use in Work Contract app (in ARP).</p>
+                    }
+                    else
+                    {
+                        <p>Ce formulaire n'est plus accessible.</p>
+                    }
+                    break;
+            }
+        </div>
+    </div>
+
+</div>

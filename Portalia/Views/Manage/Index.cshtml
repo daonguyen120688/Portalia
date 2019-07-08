@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNet.Identity
+@using Portalia.Extentions
+@using Portalia.Models
+
+@model Portalia.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Manage";
+    var listSort = new List<string>()
+{
+"LastName", "FirstName", "Gender", "Nationality", "BirthDate", "BirthPlace","Address","PreferredLanguage","Socialsecuritynumber","Situation","CV","Cartevitale"
+};
+    var currentUrl = Request.Url.Host;
+}
+
+@Html.Hidden("CheckUserProfileValidationUrl", Url.Action("CheckUserValidation", "Proposal"))
+@Html.HiddenFor(c => c.UserId)
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div data-spy="scroll" data-target=".navbar" class="container">
+    <ol class="breadcrumb">
+        <li><a href="~/">@Portalia.Resources.UserProfile.Home</a></li>
+        <li class="active">@Portalia.Resources.UserProfile.UserAccess</li>
+    </ol>
+    <div style="margin-top: 3em;">
+        <ul class="nav nav-pills" role="tablist">
+            @foreach (var attributeItem in Model.AttributeTypes)
+            {
+                <li role="presentation" class="@(attributeItem.Label == "Personal" ? "active" : "")">
+                    <a href="#@attributeItem.Label" aria-controls="home" role="tab" data-toggle="tab">@Portalia.Resources.UserProfile.ResourceManager.GetString(attributeItem.Label.RemoveSpace()) <span class="badge missing-fields-@attributeItem.Label"></span></a>
+                </li>
+            }
+        </ul>
+        <div class="tab-content" style="margin-left: -1em;">
+            @foreach (var attributeItem in Model.AttributeTypes)
+            {
+                <div role="tabpanel" class="tab-pane @(attributeItem.Label == "Personal" ? "active" : "")" id="@attributeItem.Label">
+                    <div class="col-md-6" style="padding-top: 1.5em">
+                        <fieldset id="@attributeItem.Label">
+                            <legend>@Portalia.Resources.UserProfile.ResourceManager.GetString(attributeItem.Label.RemoveSpace())</legend>
+                            @foreach (var attributeDetail in attributeItem.AttributeDetails.ToList().SortByList(listSort))
+                            {
+                                if (attributeDetail.Type.Equals("select", StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    attributeDetail.DataSourceUrl = $"https://{currentUrl}/Portalia/{attributeDetail.DataSourceUrl}";
+                                }
+                                @Html.EditorFor(model => attributeDetail, attributeDetail.Type)
+                            }
+                        </fieldset>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="text-success">@ViewBag.StatusMessage</p>
+        </div>
+    </div>
+    <div class="row profile-picture">
+        <article class="col-sm-12 maincontent m-b-20">
+            <header class="page-header">
+                <h3 class="page-title">
+                    @Portalia.Resources.HomePage.ChangeProfilePicture
+                </h3>
+            </header>
+            <div class="row">
+                <div class="col-sm-12">
+                    <img width="150" src="@Html.Action("GetUserPicture", "Manage", new { userId = Model.IdentityUserId })" />
+                    <p class="small-user-name">
+                        <b>@Model.FirstName  @Model.LastName</b>
+                    </p>
+                </div>
+                <div class="col-sm-12">
+                    <button data-url="@Url.Action("UploadUserPicture", "Manage", new {userId = Model.IdentityUserId })" id="upload-picture" class="btn btn-sm btn-prime file">@Portalia.Resources.HomePage.ChangeProfilePicture</button>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<div class="modal fade" id="profileUpdatedNotificationModal" tabindex="-1" role="dialog" aria-labelledby="profileUpdatedNotificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileUpdatedNotificationModalLabel">Vos informations ont été mises à jour.</h5>
+            </div>
+            <div class="modal-body">
+                Veuillez vous reconnecter pour voir les changements effectifs.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="button" onclick="document.getElementById('logoutForm').submit()" class="btn btn-primary">Se déconnecter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/UserProfile")
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp8DgEci818CzLgAx9N-6wV2YZEWP8mMc&libraries=places"></script>
+}

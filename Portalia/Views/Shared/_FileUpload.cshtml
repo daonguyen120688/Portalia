@@ -1,0 +1,74 @@
+﻿@model Portalia.ViewModels.FileUploadViewModel
+@{
+    Layout = null;
+}
+<div id="dropzone-area">
+
+</div>
+<div id="actions" class="row">
+    <div>
+        <!-- The fileinput-button span is used to style the file input field as button -->
+        <span class="btn btn-success fileinput-button">
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Ajouter des fichiers</span>
+        </span>
+        <button type="reset" class="btn btn-warning cancel">
+            <i class="glyphicon glyphicon-ban-circle"></i>
+            <span>Annuler</span>
+        </button>
+        <button type="submit" style="visibility: hidden" class="btn btn-primary start">
+            <i class="glyphicon glyphicon-upload"></i>
+            <span>télécharger</span>
+        </button>
+
+    </div>
+
+    <div class="col-lg-5">
+        <!-- The global file processing state -->
+        <span class="fileupload-process">
+            <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-bar progress-bar-success" style="width: 0%;" data-dz-uploadprogress></div>
+            </div>
+        </span>
+    </div>
+</div>
+<div class="table table-striped files" id="previews">
+
+    <div id="template" class="file-row">
+        <!-- This is used as the file preview template -->
+        <div>
+            <span class="preview"><img data-dz-thumbnail /></span>
+        </div>
+        <div>
+            <p class="name" data-dz-name></p>
+            <strong class="error text-danger" data-dz-errormessage></strong>
+        </div>
+        <div>
+            <p class="size" data-dz-size></p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-bar progress-bar-success" style="width: 0%;" data-dz-uploadprogress></div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-sm start">
+                <i class="glyphicon glyphicon-upload"></i>
+                <span>Démarrer</span>
+            </button>
+            <button data-dz-remove class="btn btn-warning btn-sm cancel">
+                <i class="glyphicon glyphicon-ban-circle"></i>
+                <span>Annuler</span>
+            </button>
+            <button data-dz-remove class="btn btn-danger btn-sm delete">
+                <i class="glyphicon glyphicon-trash"></i>
+                <span>Effacer</span>
+            </button>
+        </div>
+    </div>
+</div>
+@Html.Hidden("DeleteDocumentUrl", Url.Action("DeleteDocument", "Document"))
+
+@Html.HiddenFor(x => x.UrlAction)
+@Html.HiddenFor(x => x.UrlDelete)
+
+
+@Scripts.Render("~/bundles/dropzonescripts")

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://portalia.fr/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Home/About</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Home/ContactUs</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Account/Login</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Account/Register</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Home/TermsAndConditions</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Home/FAQ</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://portalia.fr/Account/ForgotPassword</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

@@ -1,0 +1,25 @@
+﻿@using Portalia.Core.Enum
+@model Portalia.ViewModels.WorkContracts.WorkContractViewModel
+
+@{
+    ViewBag.Title = "_Header";
+    var name = $"{Model.FirstName} {Model.LastName}";
+    var userManagementUrl = Url.Action("Index", "Administrator");
+}
+
+
+@if (Model.WCStatus.Value == WorkContractStatusEnum.PendingOnCandidate ||
+     Model.WCStatus.Value == WorkContractStatusEnum.PendingOnCandidateRevision)
+{
+    <h2 class="wc__title">Je génère mon Work Contract</h2>
+    <p class="wc__subtitle">Afin de commencer vos missions avec Portalia, nous allons créer avec vous un contrat de Portage Salarial. Ce contrat vous servira pour accéder aux missions et projets de votre choix, et ainsi débuter votre business.</p>
+    if (Model.WCStatus.Value == WorkContractStatusEnum.PendingOnCandidate && User.IsInRole("Administrator"))
+    {
+        <div class="wc__revision">
+            <div class="wc__revision-content">*This form cannot be edited as it is pending on Candidate.</div>
+        </div>
+    }
+}
+
+
+

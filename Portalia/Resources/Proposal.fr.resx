@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approuvé</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="ClientName" xml:space="preserve">
+    <value>Nom du client</value>
+  </data>
+  <data name="ClientsProjects" xml:space="preserve">
+    <value>Clients et Projets</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Date de création</value>
+  </data>
+  <data name="CreateNewDocument" xml:space="preserve">
+    <value>Ajouter un nouveau document</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Détail</value>
+  </data>
+  <data name="DownLoadDocument" xml:space="preserve">
+    <value>Télécharger le document</value>
+  </data>
+  <data name="Dropfilesheretoupload" xml:space="preserve">
+    <value>Déposer des fichiers ici pour télécharger</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Bonjour</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="MyClientRecovery" xml:space="preserve">
+    <value>Ma récupération client</value>
+  </data>
+  <data name="Mycontracts" xml:space="preserve">
+    <value>Contrats</value>
+  </data>
+  <data name="MyEndOfContractDocuments" xml:space="preserve">
+    <value>Documents de fin de contrat</value>
+  </data>
+  <data name="MyInvoices" xml:space="preserve">
+    <value>Factures</value>
+  </data>
+  <data name="MyPaySlip" xml:space="preserve">
+    <value>Fiches de paie</value>
+  </data>
+  <data name="MyProject" xml:space="preserve">
+    <value>Mes Projets</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="NewProposal" xml:space="preserve">
+    <value>Nouvelle proposition</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Prochain</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Documents Légaux</value>
+  </data>
+  <data name="PleaseUploadYourDocumentBeforeSend" xml:space="preserve">
+    <value>Veuillez déposer votre document avant d'envoyer</value>
+  </data>
+  <data name="PostProjectNow" xml:space="preserve">
+    <value>Créer un projet</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Projet</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Nom du projet</value>
+  </data>
+  <data name="ProjectTemplateDocument" xml:space="preserve">
+    <value>document relatif à votre projet</value>
+  </data>
+  <data name="ProposalID" xml:space="preserve">
+    <value>ID de la proposition</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejeté</value>
+  </data>
+  <data name="SendProposal" xml:space="preserve">
+    <value>Proposition envoyée</value>
+  </data>
+  <data name="SentProposal" xml:space="preserve">
+    <value>Proposition envoyée</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Étape {0}</value>
+  </data>
+  <data name="TheMoreDetail" xml:space="preserve">
+    <value>Plus vous fournissez de détails, plus vous avez de chances d'obtenir exactement
+
+                                  Ce que vous êtes après dans le plus court laps de temps possible.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="TypeYourDescription" xml:space="preserve">
+    <value>Tapez votre description ici ...</value>
+  </data>
+  <data name="UpdateYourProfile" xml:space="preserve">
+    <value>Mettre à jour votre profil</value>
+  </data>
+  <data name="UploadDocument" xml:space="preserve">
+    <value>Déposer le document</value>
+  </data>
+  <data name="Wedlovetohearfromyou" xml:space="preserve">
+    <value>Remplissez le formulaire ci-dessous avec quelques informations sur votre projet et nos équipes auront le plaisir de vous recontacter rapidement.</value>
+  </data>
+  <data name="YourClientName" xml:space="preserve">
+    <value>Votre nom de projet est important car c'est ce qui attire les pigistes à soumissionner sur votre projet.
+
+                                Vous devez décrire clairement ce dont vous avez besoin en quelques mots que possible.</value>
+  </data>
+  <data name="YourProfileLookGood" xml:space="preserve">
+    <value>Vous avez bien complété votre profil!</value>
+  </data>
+  <data name="YourProjectNameIs" xml:space="preserve">
+    <value>Votre nom de projet est important car c'est ce qui attire les pigistes à soumissionner sur votre projet.
+                                Vous devez décrire clairement ce dont vous avez besoin en quelques mots que possible.</value>
+  </data>
+  <data name="AreYouSureToDelete" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer?</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PleaseFillIn" xml:space="preserve">
+    <value>Veuillez remplir le</value>
+  </data>
+  <data name="AndUploadIt" xml:space="preserve">
+    <value>Et le télécharger</value>
+  </data>
+  <data name="youareworkinginthisproject" xml:space="preserve">
+    <value>Cette proposition ne peut pas être envoyée. Vous ne pouvez travailler que sur une proposition en même temps!</value>
+  </data>
+  <data name="ActivityReport" xml:space="preserve">
+    <value>Compte d'Activité</value>
+  </data>
+  <data name="EndOfContractBonuses" xml:space="preserve">
+    <value>Mes tutoriels</value>
+  </data>
+  <data name="MyOpportunities" xml:space="preserve">
+    <value>Opportunités de missions</value>
+  </data>
+  <data name="ProposalMyProject" xml:space="preserve">
+    <value>Projets</value>
+  </data>
+  <data name="ResearveAccount" xml:space="preserve">
+    <value>Compte de reserve (Lissage)</value>
+  </data>
+</root>

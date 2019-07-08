@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\130</SSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12B49DB1-2169-48BC-B9DD-40EEB6402129}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portalia.Core</RootNamespace>
+    <AssemblyName>Portalia.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\QA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INTE|AnyCPU'">
+    <OutputPath>bin\INTE\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Amaris.Security, Version=4.1.0.21013, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Amaris.Security.4.1.0\lib\net45\Amaris.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.3.1, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.3.1\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MultiBranding.ApiClient">
+      <HintPath>..\Dependency\MultiBranding.ApiClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Amaris.Framework.1.0.0.0-alpha17\lib\net451\Repository.Pattern.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern.Ef6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Amaris.Framework.1.0.0.0-alpha17\lib\net451\Repository.Pattern.Ef6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Service.Pattern, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Amaris.Framework.1.0.0.0-alpha17\lib\net451\Service.Pattern.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.1.0\lib\net46\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.NonGeneric.4.0.1\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Console, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.0.0\lib\net46\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.Process, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.Process.4.1.0\lib\net461\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.StackTrace.4.0.1\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.TraceSource.4.0.0\lib\net46\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.0.1\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Watcher.4.0.0\lib\net46\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.NameResolution.4.0.0\lib\net46\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.1.0\lib\net46\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.TypeExtensions.4.1.0\lib\net46\System.Reflection.TypeExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Formatters.4.3.0\lib\net46\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Thread, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Thread.4.0.0\lib\net46\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.0.1\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DataTypeInfor.cs" />
+    <Compile Include="Attributes\IgnoreTrackingChange.cs" />
+    <Compile Include="Attributes\WorkContractMappingDataFieldAttribute.cs" />
+    <Compile Include="Dtos\ApplicationDocumentDto.cs" />
+    <Compile Include="Dtos\ApplicationFormDto.cs" />
+    <Compile Include="Dtos\DataFieldDto.cs" />
+    <Compile Include="Dtos\Document\UploadDocumentDto.cs" />
+    <Compile Include="Dtos\Message\MessageDto.cs" />
+    <Compile Include="Dtos\DataItem.cs" />
+    <Compile Include="Dtos\RefDataDto.cs" />
+    <Compile Include="Dtos\TrackingChangeDto.cs" />
+    <Compile Include="Dtos\User\FilterUserDto.cs" />
+    <Compile Include="Dtos\User\PagingUserDto.cs" />
+    <Compile Include="Dtos\User\PagingUserItemDto.cs" />
+    <Compile Include="Dtos\User\PasswordValidationMessageDto.cs" />
+    <Compile Include="Dtos\WorkContractCommentDto.cs" />
+    <Compile Include="Dtos\WorkContractDto.cs" />
+    <Compile Include="Dtos\WorkContractStatusDto.cs" />
+    <Compile Include="Dtos\WorkContract\SaveWorkContractDto.cs" />
+    <Compile Include="Entity\Amaris_Smart_City.cs" />
+    <Compile Include="Entity\BankInformationSystem.cs" />
+    <Compile Include="Entity\BirthPlace.cs" />
+    <Compile Include="Entity\City.cs" />
+    <Compile Include="Entity\Country.cs" />
+    <Compile Include="Entity\CountryLanguage.cs" />
+    <Compile Include="Entity\AspNetRole.cs" />
+    <Compile Include="Entity\AspNetUser.cs" />
+    <Compile Include="Entity\AspNetUserClaim.cs" />
+    <Compile Include="Entity\AspNetUserLogin.cs" />
+    <Compile Include="Entity\AttributeDetail.cs" />
+    <Compile Include="Entity\Currency.cs" />
+    <Compile Include="Entity\Migration.cs" />
+    <Compile Include="Entity\DataField.cs" />
+    <Compile Include="Entity\FieldDetail.cs" />
+    <Compile Include="Entity\RefData.cs" />
+    <Compile Include="Entity\Skill.cs" />
+    <Compile Include="Entity\StatusMapping.cs" />
+    <Compile Include="Entity\TrackingAction.cs" />
+    <Compile Include="Entity\FolderType.cs" />
+    <Compile Include="Entity\Language.cs" />
+    <Compile Include="Entity\TrackingChange.cs" />
+    <Compile Include="Entity\UserProfileAttribute.cs" />
+    <Compile Include="Entity\AttributeType.cs" />
+    <Compile Include="Entity\Document.cs" />
+    <Compile Include="Entity\Proposal.cs" />
+    <Compile Include="Entity\UserProfile.cs" />
+    <Compile Include="Entity\WebApplication\ApplicationDocument.cs" />
+    <Compile Include="Entity\WebApplication\ApplicationForm.cs" />
+    <Compile Include="Entity\WebApplication\ApplicationFormDetail.cs" />
+    <Compile Include="Entity\WebApplication\ApplicationFormStatus.cs" />
+    <Compile Include="Entity\WebApplication\ApplicationSource.cs" />
+    <Compile Include="Entity\WebApplication\DocumentType.cs" />
+    <Compile Include="Entity\WebApplication\Gender.cs" />
+    <Compile Include="Entity\WebApplication\GetAppDocument_Result.cs" />
+    <Compile Include="Entity\WebApplication\GetWebAppForm_Result.cs" />
+    <Compile Include="Entity\WebApplication\Title.cs" />
+    <Compile Include="Entity\WebApplication\Website_ContactRequest.cs" />
+    <Compile Include="Entity\WorkContract.cs" />
+    <Compile Include="Entity\WorkContractComment.cs" />
+    <Compile Include="Entity\WorkContractStatus.cs" />
+    <Compile Include="Enum\AmarisEnum.cs" />
+    <Compile Include="Enum\AttributeEnums.cs" />
+    <Compile Include="Enum\DataFieldEnum.cs" />
+    <Compile Include="Enum\FieldEnum.cs" />
+    <Compile Include="Enum\FolderType.cs" />
+    <Compile Include="Enum\ProposalStatus.cs" />
+    <Compile Include="Enum\Roles.cs" />
+    <Compile Include="Enum\TrackingActionType.cs" />
+    <Compile Include="Enum\WorkContractEnum.cs" />
+    <Compile Include="Extensions\DocumentExtension.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\StringExtentions.cs" />
+    <Compile Include="Extensions\WorkContractExtension.cs" />
+    <Compile Include="Helpers\ApiRequestHelper.cs" />
+    <Compile Include="Helpers\LoggerHelpers.cs" />
+    <Compile Include="Helpers\StringHelpers.cs" />
+    <Compile Include="Infrastructure\Caching.cs" />
+    <Compile Include="Interface\Service\IRefDataService.cs" />
+    <Compile Include="Interface\Service\IApplicationForm.cs" />
+    <Compile Include="Interface\Service\ICreateUserProfileBasedOnExternalLogin.cs" />
+    <Compile Include="Interface\Service\IAttributeServiceType.cs" />
+    <Compile Include="Interface\Service\IDataSourceService.cs" />
+    <Compile Include="Interface\Service\IDocumentService.cs" />
+    <Compile Include="Interface\Service\IMigrationService.cs" />
+    <Compile Include="Interface\Service\IProposalService.cs" />
+    <Compile Include="Interface\Service\ISecuredTable.cs" />
+    <Compile Include="Interface\Service\IUserProfileAttributeService.cs" />
+    <Compile Include="Interface\Service\IUserProfileService.cs" />
+    <Compile Include="Interface\Service\IWorkContractService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticContent\EmailTemplateUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Scripts\Digital Sprint 11\Export.MessageTemplate.NotifyDirectorForReview.INTE.190104T03h43.json" />
+    <None Include="Scripts\Digital Sprint 11\Export.MessageTemplate.OpenWorkContractNotification.INTE.181227T03h05.json" />
+    <None Include="Scripts\Digital Sprint 12\Export.MessageTemplate.NotifyCandidateWorkContractIsReady.INTE.190108T03h08.json" />
+    <None Include="Scripts\Digital Sprint 12\Export.MessageTemplate.RemindCandidateToSubmitWorkContract.INTE.190114T04h53.json" />
+    <None Include="Scripts\Digital Sprint 12\Export.MessageTemplate.ReviseCandidateToUpdateWorkContract.INTE.190107T08h50.json" />
+    <None Include="Scripts\Digital Sprint 12\RemindCandidateToSubmitWorkContract.bat" />
+    <None Include="Scripts\Digital Sprint 17\Export.MessageTemplate.NotifyDirectorForReview.json" />
+    <None Include="Scripts\Digital Sprint 17\Export.MessageTemplate.OpenWorkContractNotification.json" />
+    <None Include="Scripts\Digital Sprint 17\Export.MessageTemplate.RemindCandidateToSubmitWorkContract.INTE.190114T04h53.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 01 - Create WorkContact tables.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 02 - Insert FieldDetails.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 03 - Insert StatusMapping.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 04 - Add ref data.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 05 - Create City table.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 06 - Insert cities data.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 07 - Create Skill table.sql" />
+    <Content Include="Scripts\Digital Sprint 11\Sprint 11. 08 - Insert skill data.sql" />
+    <Content Include="Scripts\Digital Sprint 12\Sprint 12. 03 - Add column to WorkContractStatus table.sql" />
+    <Content Include="Scripts\Digital Sprint 12\Sprint 12. 02 - Add column to Document table.sql" />
+    <Content Include="Scripts\Digital Sprint 12\Sprint 12. 01 - Create table WorkContractComment.sql" />
+    <Content Include="Scripts\Digital Sprint 12\Sprint 12. 04 - Add AdminAddress column to WorkContracts table.sql" />
+    <Content Include="Scripts\Digital Sprint 12\Windows Service installation.txt" />
+    <Content Include="Scripts\Digital Sprint 14\1. Update table UserProfile.sql" />
+    <Content Include="Scripts\Digital Sprint 15\Sprint 15. 01 - Create table Amaris_Smart_City.sql" />
+    <Content Include="Scripts\Digital Sprint 15\Sprint 15. 03 - Insert new status to WorkContractStatus.sql" />
+    <Content Include="Scripts\Digital Sprint 15\Sprint 15. 02 - Insert City data.sql" />
+    <Content Include="Scripts\Digital Sprint 15\Sprint 15. 04 - Clean unnecessary data.sql" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup Condition="$(VisualStudioVersion) == '15.0'">
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=13.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTesting, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' == ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

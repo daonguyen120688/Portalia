@@ -1,0 +1,7 @@
+﻿@model IList<Portalia.ViewModels.Users.PagingUserItemViewModel>
+
+@foreach (var user in Model)
+{
+    @Html.Partial("_User", user)
+}
+

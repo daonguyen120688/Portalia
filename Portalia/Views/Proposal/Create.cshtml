@@ -1,0 +1,81 @@
+﻿@using Portalia.Models
+@using Portalia.Resources
+@model Portalia.ViewModels.CreateProposalViewModel
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="~/">@Portalia.Resources.Proposal.Home</a></li>
+        <li><a href="@Url.Action("Index","Proposal", new {userId = Model.UserId})">@Portalia.Resources.Proposal.Project</a></li>
+        <li class="active">@Portalia.Resources.Proposal.Create</li>
+    </ol>
+    <div class="row">
+        <!-- Article main content -->
+        <article class="col-sm-9 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">@Portalia.Resources.Proposal.Hello @User.Identity.GetFirstname()!</h1>
+            </header>
+            <br>
+            @using (Html.BeginForm("Create", "Proposal", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.HiddenFor(c=>c.UserId)
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="round blue">
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-11">
+                        <label>
+                            <strong>@Portalia.Resources.Proposal.ProjectName</strong>
+                        </label>
+                        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="round blue">
+                            <span>2</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-11">
+                        <label>@Portalia.Resources.Proposal.ClientName</label>
+                        @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="round blue">
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-11">
+                        <label>@Proposal.Description</label>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @placeholder = @Portalia.Resources.Proposal.TypeYourDescription, @rows = "5" })
+                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+
+                    </div>
+                    <div class="col-sm-11 text-left">
+                        <input class="btn btn-info" type="submit" value="@Portalia.Resources.Proposal.PostProjectNow">
+                    </div>
+                </div>
+            }
+        </article>
+        <!-- /Article -->
+    </div>
+</div> <!-- /container -->
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

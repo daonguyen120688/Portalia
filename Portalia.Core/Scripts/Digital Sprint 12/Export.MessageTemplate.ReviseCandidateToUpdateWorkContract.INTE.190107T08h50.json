@@ -1,0 +1,34 @@
+{
+  "MessageID": 0,
+  "ApplicationName": "Portalia",
+  "ApplicationId": 435,
+  "Name": "ReviseCandidateToUpdateWorkContract",
+  "HoldingId": 13,
+  "IsMultibranding": false,
+  "IsConfidential": false,
+  "LayoutId": 11,
+  "Tags": "@Model.Username;@Model.WCUrl",
+  "Recipients": "@Model.UserEmail",
+  "RecipientsCc": null,
+  "RecipientsBcc": null,
+  "FromAddress": "contact@portalia.fr",
+  "ReplyTo": null,
+  "CreatedDate": "2019-01-11T07:37:06.4918288",
+  "UpdatedDate": "2019-01-15T10:05:14.1583208",
+  "CreatedById": 11463,
+  "UpdatedById": 9544,
+  "MailDelegationStatusId": 1,
+  "MessageTemplateLanguages": [
+    {
+      "MessageLanguageID": 2300,
+      "Subject": "[Portalia] Il y a quelque points à revoir dans vos informations …",
+      "Content": "<p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">Bonjour <span style=\"font-weight: bold;\">@Model.Username</span>,</span></p><p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">Nous vous remercions pour les informations que vous nous avez envoyé.</span></p><p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">Après vérifications, nous avons remarqué certains éléments incomplets ou erronés.</span></p><p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">Vous pouvez dès à présent consulter les remarques que nous avons données et rééditer vos informations en vous rendant <a href=\"@Model.WCUrl\" target=\"_blank\">ici</a>.</span></p><p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">Si vous avez la moindre question, vous pouvez nous contacter à l’adresse <a href=\"mailto:portalia_hr@portalia.fr\" target=\"_blank\">portalia_hr@portalia.fr</a> pour que nous puissions vous aider.</span></p><p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">Nous vous souhaitons une belle journée,</span></p><p></p><p><span style=\"font-family: &quot;Century Gothic&quot;, sans-serif; font-size: 14.6667px;\">L’équipe Portalia</span></p>",
+      "LanguageID": "en",
+      "CreatedDate": "2019-01-11T07:37:06.4918288",
+      "UpdatedDate": "2019-01-15T10:06:03.5953468",
+      "CreatedById": 11463,
+      "UpdatedById": 9544
+    }
+  ],
+  "PriorityId": 2
+}

@@ -1,0 +1,79 @@
+﻿@model Portalia.ViewModels.Users.PagingUserViewModel
+
+@section styles
+{
+    <link href="~/Content/user-management.css" rel="stylesheet" />
+}
+
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container">
+    @Html.Hidden("url-search", Url.Action("SearchIdentityUser", "Administrator", new { mailAddress = "" }))
+    @Html.Hidden("url-search-user", Url.Action("Index", "Administrator"))
+    @Html.Hidden("url-open-work-contract", Url.Action("OpenWorkContract", "WorkContract"))
+    <ol class="breadcrumb">
+        <li><a href="~/">Home</a></li>
+        <li class="active">Users Management</li>
+    </ol>
+    
+    <article class="maincontent">
+        <header class="page-header">
+            <h1 class="page-title">Users Management</h1>
+        </header>
+        <div class="main-box">
+            <div class="main-box-body">
+                <div class="table__controller">
+                    @*<div class="table__button-group">
+                        <a class="table__button" href="@Url.Action("CreateUserIdentityIndex", "Administrator")">Create new account</a>
+                    </div>*@
+                    <div class="table__filter-group">
+                        <div class="table__filter-employee">
+                            <span class="table__label">Employee type</span>
+                            <select class="table__filter table__select-filter table__select--employee-filter">
+                                <option value="null">All</option>
+                                <option value="true">Employee</option>
+                                <option value="false">Visitor</option>
+                            </select>
+                            <span class="table__control-icon">
+                                <i class="fas fa-caret-down"></i>
+                            </span>
+                        </div>
+                        <div class="table__filter-wc-status">
+                            <span class="table__label">@Html.DisplayNameFor(model => model.SelectedWorkContractStatus)</span>
+                            @Html.DropDownListFor(model => model.SelectedWorkContractStatus,
+                                Model.WorkContractStatuses,
+                                "All statuses",
+                                new { @class = "table__filter table__select-filter table__select--status-filter" })
+                            <span class="table__control-icon">
+                                <i class="fas fa-caret-down"></i>
+                            </span>
+                        </div>
+                        <div class="table__filter-username">
+                            <span class="table__label">Search by username</span>
+                            <input class="table__filter table__input-filter"
+                                   type="text" placeholder="Search by username"
+                                   data-filter-url="@Url.Action("Index", "Administrator")" />
+                            <span class="table__control-icon table__control-icon--search">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="table__indicator indicator hidden lds-dual-ring"></div>
+                <div id="paging-users-container">
+                    @Html.Partial("_PagingUsers", Model)
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/UserManagement")
+    <script>
+        $(document).ready(function() {
+            userManagement.initializeEvents();
+        });
+    </script>
+}

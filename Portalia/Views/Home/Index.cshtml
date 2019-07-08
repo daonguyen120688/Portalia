@@ -1,0 +1,254 @@
+﻿@{
+    Layout = "../Shared/_HomePageLayout.cshtml";
+}
+
+@if (Request.IsAuthenticated)
+{
+    @Styles.Render("~/bundles/css")
+}
+<!---HERO -->
+<div class="full-header" style="background: url('../../img/head-background.jpg');background-position: center;
+background-size: cover;
+position: relative;height:90vh;background-attachment: fixed;" id="header-section">
+    <div id="toppage" tabindex="-1" style="position: absolute;top: 0;"></div>
+
+    <div class="hero-message animated">
+        <div class="title-border">
+            <h1 style="color:white;" title="L'independancé salariale par le portage"> Portalia, l'indépendance salariale </h1>
+        </div>
+        <p style="color:white">Commencez votre première mission en moins de 12h</p>
+        <form>
+            <input class="input-text" id="mail-put" type="text" placeholder="Votre adresse mail" value="">
+
+            <a href="@Url.Action("Register","Account")" style="margin-left:20px;" class="input-button mail-test">Je m'inscris</a>
+        </form>
+        <a href="#portage" class="button-down" id="down">
+            <li class="fas fa-angle-down"></li>
+        </a>
+    </div>
+
+    <div id="portage" style="position: absolute;bottom: 140px;"></div>
+</div>
+
+<!---SECTION portage -->
+<section style="background: linear-gradient(to bottom,#e7ecf0 0,#f8f8f8 49%,#fff 100%);">
+    <div class="box">
+        <div class="column-line" style="padding: 56px;">
+            <div class="column-100">
+                <h3 style="font-size: 30px;border-left: solid 6px var(--vert-portalia);padding-left: 24px;">Le portage salarial : un statut simple </h3>
+                <p>
+                    Le portage salarial est un statut éprouvé qui permet à des professionnels autonomes de créer ou exercer leur activité sans les contraintes et les risques de la création d’entreprise ou de statuts plus précaires comme l’auto-entrepreneur ou l’indépendant (TNS).
+                </p><p>
+                    Les professionnels autonomes qui choisissent ce statut pour exercer leur métier sont salariés de la société de portage et agissent de manière autonome dans leurs actions commerciales et la réalisation de leurs missions.
+                </p>
+            </div>
+            <div class="column-33 hideme">
+                <img width="60" src="https://cdn.o2f-it.com/16407/shield_png">
+                <h3>Un statut protégé</h3>
+
+            </div>
+            <div class="column-33 hideme">
+                <img width="60" src="https://cdn.o2f-it.com/16406/rocket_png">
+                <h3>Une liberté d'entreprendre</h3>
+
+            </div>
+            <div class="column-33 hideme">
+                <img width="60" src="https://cdn.o2f-it.com/16405/love_png">
+                <h3>Une facilité de mise en oeuvre</h3>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="column-line" style="justify-content: right;margin-top: 50px;">
+
+        <div class="column-100 hideme" style="float:right;border-bottom:none;">
+            <h3 style="color: #414141;font-weight: 500;font-size: 30px;">A qui s'adresse le portage salarial ? </h3>
+
+            <div style="display: flex;flex-wrap: wrap;">
+                <div class="categories">
+                    <h3 style="font-size: 16px;padding-bottom: 25px;">Demandeurs d’emplois</h3>
+                    <p>souhaitant réaliser des missions ponctuelles ou utiliser le portage salarial comme tremplin vers une embauche </p>
+                </div>
+                <div class="categories">
+                    <h3 style="font-size: 16px;padding-bottom: 25px;">Créateurs d’entreprises</h3>
+                    <p>testant leurs projets sans risque avant la création de leur propre structure  </p>
+                </div>
+
+                <div class="categories">
+                    <h3 style="font-size: 16px;padding-bottom: 25px;">Retraités ou preretraités</h3>
+                    <p>souhaitant conserver une activité professionnelle et compléter leur retraite </p>
+                </div>
+
+                <div class="categories">
+                    <h3 style="font-size: 16px;padding-bottom: 25px;">Professionnels ou salariés</h3>
+                    <p>souhaitant mieux valoriser leurs compétences ou exercer en temps choisi une activité complémentaire  </p>
+                </div>
+
+                <div class="categories">
+                    <h3 style="font-size: 16px;padding-bottom: 25px;">Professionnels en temps partagé </h3>
+                    <p>souhaitant regrouper l’ensemble de leurs activités dans le cadre d’un employeur unique en portage salarial</p>
+                </div>
+                <div class="categories">
+                    <h3 style="font-size: 16px;padding-bottom: 25px;">Jeunes diplomés</h3>
+                    <p>souhaitant acquérir une première expérience professionnelle soit à l’issue de leur cursus soit dans le cadre de leurs études </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!---SECTION Relation tripartie -->
+<section id="portalia-expertise" style="margin-top:60px;background:url('../../img/background-green.jpg');background-position: center;background-size:cover;background-attachment: fixed;">
+    <div class="column-line" style="justify-content: left;margin-top: 100px;margin-bottom:100px;">
+
+        <div class="column-50 " style="float:right;">
+            <h3 style="color: white;font-weight: 500;font-size: 30px;border-left: solid 6px white;padding-left: 24px;">Une relation entre 3 acteurs</h3>
+
+            <div style="padding-right:100px;color: white" class="hideme">
+                <h3 style="color: white;">L'entreprise Portalia</h3>
+                <p>
+                    L’entreprise de Portage salarial, PORTALIA gère pour le compte de son salarié tous les aspects
+                    administratifs, légaux relatifs à son statut de consultant (DUE, visite médicale, édition des contrats de
+                    travail et commerciaux, gestion des frais, déclarations sociales, TVA, édition des salaires et fiche de
+                    paye, provisions…).
+                    La société s’assure du respect de règles du droit et de la convention collective.
+                    Elle participe et favorise le développement personnel du salarié (formations via l’OPCA <a style="color:rgb(96, 240, 143);" href="https://www.opcalia.com">	www.opcalia.com</a>
+                    , coaching)
+                </p>
+                <h3 style="color: white;">Les Consultants </h3>
+                <p>
+                    ils interviennent pour le compte de leur client en qualité de consultant et opèrent un
+                    transfert de compétences.
+                    A la fin du mois ils déclarent le nombre de jours travaillés via la plateforme Portalia.
+                    Les Consultants développent leur réseau de clients et échangent avec la communauté des
+                    indépendants sur les opportunités de missions
+                </p>
+                <h3 style="color: white;">Le Client </h3>
+                <p>
+                    il choisit de recourir aux services de nos salariés après avoir validé avec eux le cadre de leur
+                    intervention (montant des honoraires, durée, livrables, lieu d’intervention).
+                    En contrepartie des services apportés, le client règle chaque mois les factures correspondantes.
+                </p>
+            </div>
+        </div>
+        <div class="column-50 undisplay " style="float:left;background:url('');background-size: contain;min-height:500px;background-repeat: no-repeat;background-position: center;		position: relative;">
+            <img class="hideme" src="https://cdn.o2f-it.com/16404/schema-relation_png" style="width:600px;margin-top: 150px;">
+        </div>
+    </div>
+</section>
+<!---SECTION ET VOUS -->
+<section style="padding-top:60px;background:url('https://cdn.o2f-it.com/16404/schema-relation_png');background-position: center;background-size:cover;background-attachment: fixed;">
+    <div class="column-line" style="margin-top: 100px;">
+        <div class="column-50 undisplay " style="width: 45%;
+				margin-right: 5%;float:left;background-size: contain;min-height:500px;background-repeat: no-repeat;background-position: center;		position: relative;"></div>
+        <div class="column-50 " style="float:left;">
+            <h3 style="color: rgb(37, 37, 37);font-weight: 500;font-size: 30px;border-left: solid 6px var(--vert-portalia);padding-left: 24px;">Et vous</h3>
+            <p style="font-size: 20px;margin-top:20px;padding-bottom: 10px;color: rgb(34, 34, 34)">Si vous vous reconnaissez dans cette description c’est certainement que le <span style="font-weight:500">portage salarial</span> est fait pour vous :</p>
+
+            <form class="test hideme">
+                <p>
+                    <input class="checkbox-homepage" type="checkbox" id="test1">
+                    <label for="test1">Vous avez à votre actif plusieurs années d’expériences professionnelles et disposez d’un réseau de contacts clients</label>
+                </p>
+                <p>
+                    <input class="checkbox-homepage" type="checkbox" id="test2">
+                    <label for="test2">Vous voulez pouvoir choisir les missions sur lesquelles intervenir</label>
+                </p>
+                <p>
+                    <input class="checkbox-homepage" type="checkbox" id="test3">
+                    <label for="test3">Vous préférez décider vous-même des caractéristiques de ces missions (Durée, livrables, lieu d’intervention, Tarif)</label>
+                </p>
+                <p>
+                    <input class="checkbox-homepage" type="checkbox" id="test4">
+                    <label for="test4">Vous voulez créer de la valeur pour vos clients et en tirer des bénéfices pour vous-même.</label>
+                </p>
+                <p>
+                    <input class="checkbox-homepage" type="checkbox" id="test5">
+                    <label for="test5">Bien qu’étant Indépendant vous souhaitez conserver les avantages que procure un statut de Salarié</label>
+                </p>
+                <p>
+                    <input class="checkbox-homepage" type="checkbox" id="test6">
+                    <label for="test6">Vous aimez la lecture de votre fiche de paye mais détestez la « paperasse administrative »</label>
+                </p>
+            </form>
+            <p class="hideme" style="font-size: 16px;
+						font-weight: 400;margin-top:40px;margin-bottom:30px;padding-bottom: 60px;font-family:'Montserrat',sans-serif;color: rgb(75, 75, 75)">Alors oui vous êtes définitivement bien tombé en vous adressant à PORTALIA car nous allons pouvoir vous accompagner sur les différentes étapes depuis la phase de cadrage de votre mission jusqu’à celle de la facturation en passant par l’édition de vos contrats, de vos affiliation et du paiement de vos salaires.</p>
+        </div>
+
+    </div>
+</section>
+<!---SECTION Et Nous -->
+<section id="portalia-expertise" style="padding-top:60px;background:url('../../img/background-2.jpg');background-position: center;background-size:cover;background-attachment: fixed;">
+
+    <div class="column-line" style="justify-content: left;margin-top: 100px;margin-bottom:100px;">
+        <div class="column-50" style="float:right;">
+            <h3 style="color: white;font-weight: 500;font-size: 30px;border-left: solid 6px white;padding-left: 24px;">Et nous</h3>
+            <p style="font-size: 20px;margin-top:20px;color: white;border-bottom: solid 1px rgb(255, 255, 255);padding-bottom: 27px;">Nous sommes intimement convaincus au sein de PORTALIA que le portage Salarial va révolutionner dans les années à venir le métier du consultant.</p>
+            <p style="font-size: 18px;font-weight:300;/*! border-bottom: solid 1px #ffffff; */margin-top:20px;margin-bottom:-46px;padding-bottom: 60px;color: white">Afin d’accompagner cette transformation du monde du travail nous avons choisi d’adopter une posture résolument novatrice qui passe par </p>
+            <div class="hideme" style="color: white">
+                <img src="https://cdn.o2f-it.com/16398/pointer_png" width="32">
+                <h3 style="display: inline;padding-left: 20px;color:white;">La simplification des processus d’affiliation par le digital</h3>
+                <p>Vous pouvez demarrer une mission en – de 12h partout en France</p>
+                <img src="https://cdn.o2f-it.com/16397/community_png" width="32">
+                <h3 style="display: inline;padding-left: 20px;color:white;">Le développement d’une communauté d’indépendants permettant l’échange d’opportunités </h3>
+                <p>Pour permettre une continuité d’activité, et une évolution des compétences</p>
+                <img src="https://cdn.o2f-it.com/16396/quality_png" width="32">
+                <h3 style="display: inline;padding-left: 20px;color:white;">Une démarche qualité à tous les stades  de l’entreprise </h3>
+                <p>Formations, sécurité des Informations (Norme ISO27001), REX, satisfaction Survey</p>
+                <img src="https://cdn.o2f-it.com/16395/team_png" width="32">
+                <h3 style="display: inline;padding-left: 20px;color:white;">Une équipe composée d’Experts</h3>
+                <p>Experts qui sont tous disponibles pour vous accompagner dans une démarche « sur mesure » et répondre à vos questions dans les plus brefs délais</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!---SECTION Entreprise -->
+<section id="portalia-expertise" style="background:linear-gradient(to bottom,#f0f4f7 0,#fff 49%,#fff 100%);padding-bottom:60px;">
+
+    <div class="column-line" style="justify-content: left;margin-top: 100px;margin-bottom:10px;border-bottom:none;">
+        <div class="column-100" style="margin: 0 auto;text-align: center;border-bottom: none;">
+            <h3 style="color: rgb(32, 32, 32);font-weight: 500;font-size: 30px;">Partenaires de votre réussite</h3>
+            <p style="font-size: 20px;margin-top:20px;color: rgb(48, 48, 48)">Grâce à notre réseau d'entreprises, vous vous assurez un moyen efficace d'accéder aux meilleurs missions. </p>
+            <img src="https://cdn.o2f-it.com/16394/partenaires_png" style="width:100%;display:block;margin:0 auto;">
+            <h3 style="color: rgb(32, 32, 32);font-weight: 500;font-size: 20px;border-top:solid 1px rgb(212, 212, 212); padding-top:50px;">Vous cherchez une mission pour débuter en tant que porté ?</h3>
+            <p style="padding-top:10px;margin-bottom:30px;">Découvrez notre partenariat avec <img src="https://cdn.o2f-it.com/16393/LBC_Button_png" style="margin-right: 5px;" width="18px;"><span style="font-weight:600;">LittleBIG</span> Connection</p>
+            <a href="https://www.littlebigconnection.com/fr/" class="input-button" style="background:rgb(243, 43, 16);font-size:18px;">Portalia + LittleBig Connection</a>
+        </div>
+    </div>
+</section>
+
+<!---SECTION pTesti -->
+<section style="background:linear-gradient(to bottom,#f0f4f7 0,#fff 49%,#fff 100%);">
+    <div class="column-line" style="justify-content: center;margin-top: 100px;">
+        <div class="box-contact">
+            <p style="font-weight: 500;color: #575757;font-size: 22px;">"Après avoir pris ma retraite, j’ai souhaité garder un pied dans le monde du travail. "</p>
+            <h4>C’est pourquoi je me suis tourné vers le portage salarial avec PORTALIA. Ainsi, quelques jours par mois je transmets mes connaissances tout en percevant un complément à mes indemnités."</h4>
+            <div class="contact-name"><img src="https://cdn.o2f-it.com/16392/gilles_jpg" class="img-contact"><p>Gilles  <a href="https://www.linkedin.com/in/gilles-majda-75b71688/" style="color:#248fd4;margin-left:5px;"><i class="fab fa-linkedin"></i></a></p></div>
+        </div>
+        <div class="box-contact">
+            <p style="font-weight: 500;color: #575757;font-size: 22px;">"Le travail sérieux de Portalia et de ses employés m'a permis d'attaquer mon projet et ma mission sereinement."</p>
+            <h4>J'ai beaucoup apprécié les premiers échanges que j'ai pu avoir avec les équipes. Le portage salariale m'était inconnu et m'inspirait moins qu'un contrat classique type CDD, CDI, mais après toutes les explications nécessaires, je me suis rendu compte des nombreux avantages que cela m’apporterais.  </h4>
+            <div class="contact-name"><img src="https://cdn.o2f-it.com/16391/Laura-fix_jpg" class="img-contact"><p>Damien <a href="https://www.linkedin.com/in/damien-landreau-b4684513b/" style="color:#248fd4;margin-left:5px;"><i class="fab fa-linkedin"></i></a></p></div>
+        </div>
+        <div class="box-contact">
+            <p style="font-weight: 500;color: #575757;font-size: 22px;">"Portalia a été efficace sur tous les plans." </p>
+            <h4>
+                Une signature de contrat rapide, une mise en place sans erreurs, une réponse à toutes mes demandes dans un délai très court .
+
+                Le portail est simple d'utilisation et permet d'avoir en ligne l'ensemble des documents importants : fiche de paye, contrat, déclaration des frais etc ...
+
+                Avec Portalia ,les besoins administratifs sont sous controle.
+                "
+            </h4>
+            <div class="contact-name"><img src="https://cdn.o2f-it.com/16390/Philippe_JPG" class="img-contact"><p>David <a href="https://www.linkedin.com/in/david-hamou-536a102/" style="color:#248fd4;margin-left:5px;"><i class="fab fa-linkedin"></i></a> </p></div>
+        </div>
+    </div>
+    <div class="column-line" style="justify-content: center;margin-top: 150px;margin-bottom:50px;border-top:solid 1px #eaeaea">
+        <div class="column-100" style="display: inline-flex;justify-content: center;border:none;flex-wrap: wrap;">
+            <h3>Simplifiez vous l'indépendance</h3><a href="@Url.Action("ContactUs")" class="input-button inscription-process" style="margin-left: 22px;">Je m'inscris</a>
+        </div>
+    </div>
+</section>

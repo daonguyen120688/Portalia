@@ -1,0 +1,1 @@
+update [dbo].[AttributeType] set Label = 'Document' where Label = 'Informations'

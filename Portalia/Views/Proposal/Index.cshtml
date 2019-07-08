@@ -1,0 +1,110 @@
+﻿@using Portalia.Core.Entity
+@using Portalia.Core.Enum
+@using Roles = Portalia.Core.Enum.Roles
+@model List<Portalia.Core.Entity.Proposal>
+
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container" style="min-height: 630px">
+
+    <ol class="breadcrumb">
+        <li><a href="~/">@Portalia.Resources.Proposal.Home</a></li>
+        <li class="active">@Portalia.Resources.Proposal.Project</li>
+    </ol>
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-sm-12 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">@Portalia.Resources.Proposal.ClientsProjects</h1>
+            </header>
+            <p>
+                <h3>@Portalia.Resources.Proposal.Wedlovetohearfromyou</h3>
+            </p>
+            <p>
+                <a class="btn btn-info" href="@Url.Action("Create","Proposal", new {userId = ViewBag.UserId })"><i class="fa fa-plus-circle"></i> @Portalia.Resources.Proposal.NewProposal</a>
+            </p>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-sm-1">Envoyer proposition</th>
+                        <th class="col-sm-1">Mon espace personel</th>
+                        <th class="col-sm-2">@Portalia.Resources.Proposal.Project</th>
+                        <th class="col-sm-2">@Portalia.Resources.Proposal.Client</th>
+                        <th class="col-sm-1">@Portalia.Resources.Proposal.Status</th>
+                        <th class="col-sm-2">@Portalia.Resources.Proposal.CreatedDate</th>
+                        <th class="col-sm-1">@Portalia.Resources.Proposal.Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var proposal in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (proposal.ProposalStatus == ProposalStatus.New)
+                                {
+                                    <a class="btn btn-primary btn-sm sendProposal" data-title="Edit" data-url="@Url.Action("SendProposal", new {proposalId = proposal.ProposalId})">
+                                        <span class="glyphicon glyphicon-send"></span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-default btn-sm disabled" data-title="Edit">
+                                        <span class="glyphicon glyphicon-send"></span>
+                                    </a>
+                                }
+                            </td>
+                            <td>
+                                <a class="btn btn-success btn-sm" data-title="Detail" href="@Url.Action("Detail", "Proposal", new {proposalId = proposal.ProposalId,userId = ViewBag.UserId})">
+                                    <span class="glyphicon glyphicon-zoom-in"></span>
+                                </a>
+                            </td>
+                            <td>@proposal.ProjectName</td>
+                            <td>@proposal.ClientName</td>
+                            <td>@RenderProposalStatusLabel(proposal)</td>
+                            <td>@proposal.CreatedDate.ToShortDateString()</td>
+                            <td>
+                                @if (proposal.ProposalStatus == ProposalStatus.New)
+                            {
+                                <a class="btn btn-danger btn-sm delete-proposal" data-url="@Url.Action("Delete","Proposal",new {proposalId=proposal.ProposalId,userId = ViewBag.UserId })" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-default btn-sm disabled" data-title="Delete">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </article>
+        <!-- /Article -->
+    </div>
+</div> <!-- /container -->
+@section scripts{
+    @Scripts.Render("~/bundles/Proposal")
+}
+@helper RenderProposalStatusLabel(Proposal proposal)
+{
+switch (proposal.ProposalStatus)
+{
+    case ProposalStatus.SentProposal:
+            @Html.Raw($"<span class='label label-default'>{Portalia.Resources.Proposal.SendProposal}</span>")
+        break;
+    case ProposalStatus.New:
+            @Html.Raw($"<span class='label label-primary'>{Portalia.Resources.Proposal.New}</span>")
+        break;
+    case ProposalStatus.Approved:
+            @Html.Raw($"<span class='label label-success'>{Portalia.Resources.Proposal.Approved}</span>")
+        break;
+    case ProposalStatus.Rejected:
+            @Html.Raw($"<span class='label label-danger'>{Portalia.Resources.Proposal.Rejected}</span>")
+        break;
+}
+}

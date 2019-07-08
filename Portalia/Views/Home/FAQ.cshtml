@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+}
+<!---HERO -->
+<div class="full-header" style="background: url('../../img/background-faq.jpg');height:40vh;background-position: center;">
+    <div class="hero-message-fullscreen">
+        <div class="title-border">
+            <h2 style="color:white;"> FAQ </h2>
+        </div>
+    </div>
+</div>
+<!---SECTION portage -->
+<section style="background:linear-gradient(to bottom,#f0f4f7 0,#fff 49%,#fff 100%);">
+    <div class="box">
+        <div class="column-line" style="padding: 56px;">
+            <div class="column-50">
+
+                <h4 faq="1" class="faq-clicker">Qu'est ce que le portage salarial ?</h4>
+                <h4 faq="2" class="faq-clicker">Est ce que tous les métiers peuvent etre portés ?</h4>
+                <h4 faq="3" class="faq-clicker">Quelles sont les missions possibles dans le cadre du portage ?</h4>
+                <h4 faq="4" class="faq-clicker">A qui s'adresse le portage salarial  ?</h4>
+                <h4 faq="5" class="faq-clicker">Quels avantages a devenir salarie porte ?</h4>
+                <h4 faq="6" class="faq-clicker">Quelle convention collective regit le portage salarial ?</h4>
+            </div>
+            <div class="column-50">
+                <p id="1" class="faq">Il s’agit d’une nouvelle forme de travail apparue dans le milieu des années 80, pour la France, et qui permet à des travailleurs indépendants de conserver leur autonomie tout en bénéficiant du statut de salarié et de ses avantages</p>
+                <p id="2" class="faq">Le portage salarial concerne les métiers du service et de l'artisanat (+ de 750 métiers), à travers tous les secteurs d’activité, à l’exception des professions réglementées (avocat, médecin…) et des services à la personne (garde d’enfants, aide aux personnes handicapées…).</p>
+                <p id="3" class="faq">De la mission de service, de conseil, de formation ou encore d’accompagnement de projet, le cadre du portage englobe toutes les prestations intellectuelles ainsi que les métiers en lien avec la création (mode, art et culture). Seuls les métiers réglementés ou soumis à un régime spécifique ne sont pas compatibles.</p>
+                <p id="4" class="faq">Le portage salarial s’adresse aux freelances, aux jeunes diplômés, aux actifs en reconversion ainsi qu’aux retraités en cumul emploi-retraite. Toute personne possédant une expertise ou un talent précis dans l’un des nombreux métiers portés peut opter pour le portage salarial.</p>
+                <p id="5" class="faq">En ayant le statut de salarié, la personne portée bénéficie de tous les avantages tels que la prévoyance, le droit à la formation, la couverture maladie, la responsabilité civile, ou encore l’assurance chômage. De nature entrepreneuriale, vous pourrez choisir vos projets, conserver votre autonomie et équilibrer votre vie professionnelle et privée.</p>
+
+                <div id="6" class="faq" style="text-align: center;">
+                    <p>Vous pouvez retrouver la convention collective du portage salarial en cliquant sur ce lien :</p>
+                    <form method="get" action="~/Content/Proposal/CCNPS Juillet 2017.pdf">
+                        <button class="input-button" style="font-size: 17px;box-shadow:none;" id="whitepaper" type="submit">Convention Collective du Portage Salarial</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="column-100" style="display: inline-flex;justify-content: center;margin-top: 100px;border:none;flex-wrap: wrap;">
+        <h3 style="margin-right: 20px;">Simplifiez-vous l'indépendance</h3><a href="@Url.Action("ContactUs")" class="input-button inscription-process">Je m'inscris</a>
+    </div>
+</section>

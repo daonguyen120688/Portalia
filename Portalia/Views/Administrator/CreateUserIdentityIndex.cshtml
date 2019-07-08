@@ -1,0 +1,75 @@
+﻿@model Portalia.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "CreateUserIdentityIndex";
+}
+
+<h2>CreateUserIdentityIndex</h2>
+
+<div class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="~/">Home</a></li>
+        <li class="active">Add new account</li>
+    </ol>
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-xs-12 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Add new account</h1>
+            </header>
+
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="thin text-center">Create new account</h3>
+                        @using (Html.BeginForm("CreateUserIdentityUser", "Administrator", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                        {
+                            @Html.ValidationSummary("", new {@class = "text-danger"})
+                            <div class="top-margin">
+                                <label>First Name</label>
+                                @Html.TextBoxFor(m => m.FirstName, new {@class = "form-control"})
+                            </div>
+                            <div class="top-margin">
+                                <label>Last Name</label>
+                                @Html.TextBoxFor(m => m.LastName, new {@class = "form-control"})
+                            </div>
+                            <div class="top-margin">
+                                <label>Email Address <span class="text-danger">*</span></label>
+                                @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                            </div>
+
+                            <div class="row top-margin">
+                                <div class="col-sm-6">
+                                    <label>Password <span class="text-danger">*</span></label>
+                                    @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Confirm Password <span class="text-danger">*</span></label>
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control"})
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-lg-4 text-left">
+                                    <button class="btn btn-prime btnNormal" type="submit">Create</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+        </article>
+        <!-- /Article -->
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

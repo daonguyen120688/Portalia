@@ -1,0 +1,65 @@
+﻿@model Portalia.ViewModels.EditUserIdentityProfile
+@{
+    ViewBag.Title = "Update User Profile";
+}
+
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="~/">Home</a></li>
+        <li class="active">Update User Profile</li>
+    </ol>
+
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.FullName</h3>
+            </div>
+            @using (Html.BeginForm("UpdateUserProfile", "Administrator", FormMethod.Post, new { role = "form" }))
+            {
+                @Html.HiddenFor(c => c.UserId)
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive">
+                        </div>
+                        <div class="col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>First Name:</td>
+                                        <td>@Html.TextBoxFor(c => c.FirstName, new {@class = "form-control"})</td>
+                                        <td>@Html.ValidationMessageFor(c => c.FirstName, null, new { @class = "text-danger" })</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name:</td>
+                                        <td>@Html.TextBoxFor(c => c.LastName, new {@class = "form-control"})</td>
+                                        <td>@Html.ValidationMessageFor(c => c.LastName, null, new { @class = "text-danger" })</td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+                        <button href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="submit" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                        <a data-original-title="Close" href="@Url.Action("Index","Administrator")" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </span>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

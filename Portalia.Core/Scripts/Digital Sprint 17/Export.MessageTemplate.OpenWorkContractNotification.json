@@ -1,0 +1,34 @@
+{
+  "MessageID": 1918,
+  "ApplicationName": "Portalia",
+  "ApplicationId": 435,
+  "Name": "OpenWorkContractNotification",
+  "HoldingId": 13,
+  "IsMultibranding": false,
+  "IsConfidential": false,
+  "LayoutId": 11,
+  "Tags": "@Model.FirstName;@Model.WorkContractUrl",
+  "Recipients": "@Model.UserPersonalEmail",
+  "RecipientsCc": null,
+  "RecipientsBcc": null,
+  "FromAddress": "contact@portalia.fr",
+  "ReplyTo": null,
+  "CreatedDate": "2019-04-10T09:10:20.4287052",
+  "UpdatedDate": "2019-05-29T03:30:39.5405265",
+  "CreatedById": 8153,
+  "UpdatedById": 11463,
+  "MailDelegationStatusId": null,
+  "MessageTemplateLanguages": [
+    {
+      "MessageLanguageID": 2331,
+      "Subject": "[Portalia] Remplissez vos informations de contrat de travail",
+      "Content": "<p class=\"MsoNormal\"><span lang=\"FR\">Bonjour <b>@Model.FirstName</b>,<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Afin de nous permettre de préparer votre contrat de travail, vous allez devoir remplir quelques informations dans </span><a href=\"@Model.WorkContractUrl\"><span lang=\"FR\">votre espace Portalia</span></a><span lang=\"FR\">.&nbsp;Les données personnelles remplies au sein de ce formulaire sont utilisées uniquement pour la création de votre contrat de travail et selon des obligations légales.<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Si vous avez la moindre question, vous pouvez nous contacter à l’adresse </span><a href=\"mailto:PORTALIA_HR@PORTALIA.FR\"><span lang=\"FR\">portalia_hr@portalia.fr</span></a><span lang=\"FR\"> pour que nous puissions vous aider.<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Nous vous souhaitons une belle journée,<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"EN-GB\">L’équipe Portalia<o:p></o:p></span></p>",
+      "LanguageID": "en",
+      "CreatedDate": "2019-04-10T09:10:20.4287052",
+      "UpdatedDate": "2019-05-29T03:34:31.9131655",
+      "CreatedById": 8153,
+      "UpdatedById": 11463
+    }
+  ],
+  "PriorityId": 2
+}

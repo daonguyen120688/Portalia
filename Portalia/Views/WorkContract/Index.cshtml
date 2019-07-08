@@ -1,0 +1,296 @@
+﻿@model Portalia.ViewModels.WorkContracts.WorkContractViewModel
+
+@{
+    ViewBag.Title = "Je génère mon Work Contract";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.IsInRole("Administrator"))
+    {
+        Model.HighlightedFields = string.Empty;
+    }
+    string isClearCountry = string.IsNullOrEmpty(Model.Country) ? "true" : "false";
+    string isClearCountryOfBirth = string.IsNullOrEmpty(Model.CountryOfBirth) ? "true" : "false";
+    string isClearNationality = string.IsNullOrEmpty(Model.Nationality) ? "true" : "false";
+    var isAdministrator = User.IsInRole("Administrator");
+    var isPendingOnCandidate = Model.WCStatus == Portalia.Core.Enum.WorkContractStatusEnum.PendingOnCandidate;
+    var isPendingOnCandidateRevision = Model.WCStatus == Portalia.Core.Enum.WorkContractStatusEnum.PendingOnCandidateRevision;
+}
+
+<div class="work-contract">
+    <div class="wc__inner">
+        <div class="wc__heading">
+            @Html.Partial("_Header", Model)
+        </div>
+        @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "wc__form", id = "frmWC" }))
+        {
+            <input type="hidden" name="IsSubmit" id="IsSubmit" value="@Model.IsSubmit" />
+            <input type="hidden" name="ContractId" id="ContractId" value="@Model.ContractId" />
+            <input type="hidden" id="tempSkill" value="@Model.Skills" />
+            <input type="hidden" id="Type" name="Type" value="@Model.Type" />
+            <input type="hidden" id="tempCity" value="@Model.City" />
+            <input type="hidden" id="IsRevision" value="@Model.IsRevision" />
+            <input type="hidden" id="HighlightedFields" name="HighlightedFields" />
+            @Html.HiddenFor(model => model.IsInputDisabled)
+            @Html.HiddenFor(model => model.IsValidation)
+
+            <div class="wc__body">
+                <div class="wc__form-wrapper">
+                    <div class="wc__form-title">Mes informations</div>
+                    <div class="wc__form-row">
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Titre</label>
+                            <div class="wc__form-control">
+                                @Html.DropDownListFor(x => x.Title, Model.LstTitles, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.Title)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Prénom</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.FirstName, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.FirstName)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Nom</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.LastName, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.LastName)
+                        </div>
+                    </div>
+                    <div class="wc__form-row">
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Date de naissance</label>
+                            <div class="wc__form-control">
+                                <!-- Datetime picker -->
+                                @Html.TextBoxFor(x => x.DateOfBirth, "{0:d}", new { @class = "wc__form-control-datepicker" })
+                                <span class="wc__form-control-icon">
+                                    <i class="far fa-calendar"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.DateOfBirth)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Pays de naissance</label>
+                            <div class="wc__form-control">
+                                @Html.DropDownListFor(x => x.CountryOfBirth, Model.LstCountries, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.CountryOfBirth)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Nationalité</label>
+                            <div class="wc__form-control">
+                                @Html.DropDownListFor(x => x.Nationality, Model.LstNationalities, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.Nationality)
+                        </div>
+                    </div>
+                    <div class="wc__form-row">
+                        <div class="wc__form-item">
+                            <label class="wc__form-label">Adresse</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.Address, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.Address)
+                        </div>
+                    </div>
+                    <div class="wc__form-row">
+
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Pays</label>
+                            <div class="wc__form-control">
+                                @Html.DropDownListFor(x => x.Country, Model.LstCountries, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.Country)
+                        </div>
+
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Ville</label>
+                            <div class="wc__form-control clsCity">
+                                @Html.DropDownList("City", Model.LstCities, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.City)
+                        </div>
+
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Code Postal</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.PostCode, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.PostCode)
+                        </div>
+                    </div>
+                    <div class="wc__form-row wc__form-row--pb-40px wc__form-row--gutter-25px">
+                        <div class="wc__form-item wc__form-item--w-50" id="divSocialNumber">
+                            <label class="wc__form-label">Numéro de Sécurité Sociale</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.SSN, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.SSN)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-50 hidden" id="divVisaPermit">
+                            <label class="wc__form-label">Référence du permis de travail</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.VisaPermitNo, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.VisaPermitNo)
+                        </div>
+                    </div>
+                    <div class="wc__form-title">Ma mission</div>
+                    <div class="wc__form-row wc__form-row--gutter-25px">
+                        <div class="wc__form-item wc__form-item--w-50">
+                            <label class="wc__form-label">Date de début du contrat</label>
+                            <div class="wc__form-control">
+                                <!-- Datetime picker -->
+                                @Html.TextBoxFor(x => x.ContractStartDate, "{0:d}", new { @class = "wc__form-control-datepicker" })
+                                <span class="wc__form-control-icon">
+                                    <i class="far fa-calendar"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.ContractStartDate)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-50">
+                            <label class="wc__form-label">Date de fin du contrat (optionnel sauf si CDD)</label>
+                            <div class="wc__form-control">
+                                <!-- Datetime picker -->
+                                @Html.TextBoxFor(x => x.ContractEndDate, "{0:d}", new { @class = "wc__form-control-datepicker" })
+                                <span class="wc__form-control-icon">
+                                    <i class="far fa-calendar"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.ContractEndDate)
+                        </div>
+                    </div>
+                    <div class="wc__form-row">
+                        <div class="wc__form-item">
+                            <label class="wc__form-label">Description du projet</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.ProjectDescription, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.ProjectDescription)
+                        </div>
+                    </div>
+                    <div class="wc__form-row">
+                        <div class="wc__form-item">
+                            <label class="wc__form-label">Vos compétences</label>
+                            <div class="wc__form-control">
+                                @Html.DropDownList("Skills", Model.LstSkills, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.Skills)
+                        </div>
+                    </div>
+
+                    <div class="wc__form-row">
+                        <div class="wc__form-item">
+
+                            <label class="wc__form-label">Nom de votre client</label>
+
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.ClientNameByCandidate, new { @class = "wc__form-control-text", placeholder = "Veuillez choisir" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.ClientNameByCandidate)
+                        </div>
+                    </div>
+
+                    <div class="wc__form-row">
+                        <div class="wc__form-item">
+                            <label class="wc__form-label">Adresse de votre client</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.ClientAddress, new { @class = "wc__form-control-text" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.ClientAddress)
+                        </div>
+                    </div>
+
+                    <div class="wc__form-row">
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label">Rémunération</label>
+                            <div class="wc__form-control">
+                                @Html.TextBoxFor(x => x.AllowancesDisplay, new { @class = "wc__form-control-text", placeholder = "e.g. 100,25", @type = "text", @data_type = "currency", @data_decimal = "4" })
+                            </div>
+                            @Html.ValidationMessageFor(x => x.AllowancesDisplay)
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label"></label>
+                            <div class="wc__form-control">
+                                @Html.DropDownListFor(x => x.Currency, Model.LstCurrencies, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="wc__form-item wc__form-item--w-33">
+                            <label class="wc__form-label"></label>
+                            <div class="wc__form-control">
+                                @Html.DropDownListFor(x => x.Basic, Model.LstBasic, new { @class = "wc__form-control-select" })
+                                <span class="wc__form-control-icon">
+                                    <i class="fas fa-caret-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wc__form-row wc__form-row--pt-30px">
+                        <div class="wc__form-item">
+                            <div class="wc__form-group-button">
+                                @if (isPendingOnCandidate || isPendingOnCandidateRevision)
+                                {
+                                    <a class="wc__form-button wc__form-button--alt" href="javascript:void(0);" id="btnSave">Enregistrer comme brouillon</a>
+                                    <a class="wc__form-button" href="javascript:void(0);" id="btnSubmit">Générer mon work contract</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section styles {
+    @Styles.Render("~/bundles/work-contract-css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryvalcustom")
+    <script type="text/javascript">
+        var skillUrl = "@Url.Action("Skill", "DataSource")";
+        var cityUrl = "@Url.Action("City", "DataSource")";
+        var saveUrl = "@Url.Action("SaveWorkContract", "WorkContract")";
+        var submitUrl = "@Url.Action("SubmitWorkContract", "WorkContract")";
+        var revisionUrl = "@Url.Action("RequestCandidateToRevise", "WorkContract")";
+        var validationUrl = "@Url.Action("ValidateWorkContract", "WorkContract")";
+        var redirectUrl = "@Url.Action("MySpace", "Proposal")";
+        var redirectUrlAdmin = "@Url.Action("Index", "Administrator")";
+        var wcStatus = "@((int)Model.WCStatus)";
+        var title = "@Model.Title";
+        var highlightFields = "@Model.HighlightedFields";
+        var isClearCountry =@isClearCountry;
+        var isClearCountryOfBirth =@isClearCountryOfBirth;
+        var isClearNationality =@isClearNationality;
+        var clientNameUrl = "@Url.Action("GetClients", "DataSource")";
+        
+    </script>
+    @Scripts.Render("~/bundles/work-contract")
+}
+

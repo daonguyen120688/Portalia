@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNet.Identity
+@using Portalia.Core.Enum
+
+@model Portalia.ViewModels.WorkContracts.WorkContractViewModel
+
+@{ 
+    string workContractLink = Url.Action("Index", "WorkContract", new { workContractId = Model?.ContractId });
+}
+
+@if (Model != null && Request.RawUrl != workContractLink)
+{
+    switch (Model.WCStatus)
+    {
+        case WorkContractStatusEnum.PendingOnCandidate:
+            <div class="wc__sticky-button-wrapper wc__sticky-button-wrapper--show">
+                <a class="wc__sticky-button" href="@workContractLink">Générer son work contract</a>
+            </div>
+            break;
+        case WorkContractStatusEnum.Validated:
+            @Html.Hidden(
+                "AcknowledgeValidationUrl",
+                Url.Action("AcknowledgeValidation", "WorkContract", new { workContractId = Model.ContractId }))
+            <div class="wc__sticky-button-wrapper wc__sticky-button-wrapper--show">
+                <a class="wc__sticky-button wc__sticky-button--yellow" href="javascript:void(0);">Work Contract de travail soumis</a>
+            </div>
+            break;
+        case WorkContractStatusEnum.Uploaded:
+            <div class="wc__sticky-button-wrapper wc__sticky-button-wrapper--show">
+                <a class="wc__sticky-button wc__sticky-button--green download-work-contract-btn" href="javascript:void(0);"
+                   data-download-wc-url="@Url.Action("DownloadDefault", "Proposal", new {DocumentId = Model.DocumentId})"
+                   data-wc-acknowledge-url="@Url.Action("AcknowledgeValidation", "WorkContract")"
+                   data-wc-id="@Model.ContractId"
+                   data-url="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyContract, userId = User.Identity.GetUserId()})">Work contract validé !</a>
+            </div>
+            break;
+    }
+}

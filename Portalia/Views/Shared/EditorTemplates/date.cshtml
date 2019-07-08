@@ -1,0 +1,10 @@
+﻿@using Portalia.Extentions
+@model Portalia.Core.Entity.AttributeDetail
+
+@{
+    var userProfileAttribute = Model.UserProfileAttributes.FirstOrDefault();
+}
+<div data-is-required="@Model.IsRequired" id="@(Model.Name.RemoveSpace())" class="form-group">
+    <label>@Portalia.Resources.UserProfile.ResourceManager.GetString(Model.Name.RemoveSpace()) @Html.Raw(Model.IsRequired? "<span class=\"text-danger\">*</span>":"") </label>
+    <a href="#" class="form-control editable-click" data-type="@userProfileAttribute.AttributeDetail.Type" data-pk="@userProfileAttribute.UserProfileAttributeId" data-url="@Url.Action("UpdateUserProfile", "Manage")" data-title="Enter Value" data-value="@userProfileAttribute.Value" data-name="@userProfileAttribute.AttributeDetail.Name" data-viewformat="dd/mm/yyyy" data-mode="popup" data-placement="bottom" data-startview="2" data-format="dd/mm/yyyy">@(string.IsNullOrEmpty(userProfileAttribute.Value) ? "" : userProfileAttribute.Value)</a>
+</div>

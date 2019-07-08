@@ -1,0 +1,34 @@
+{
+  "MessageID": 0,
+  "ApplicationName": "Portalia",
+  "ApplicationId": 435,
+  "Name": "NotifyCandidateWorkContractIsReady",
+  "HoldingId": 13,
+  "IsMultibranding": false,
+  "IsConfidential": false,
+  "LayoutId": 11,
+  "Tags": "@Model.UserFirstName;@Model.MyPersonalSpaceUrl",
+  "Recipients": "@Model.UserPersonalEmail",
+  "RecipientsCc": null,
+  "RecipientsBcc": null,
+  "FromAddress": "contact@portalia.fr",
+  "ReplyTo": null,
+  "CreatedDate": "2019-01-11T07:37:30.17584",
+  "UpdatedDate": "2019-01-11T10:31:50.79623",
+  "CreatedById": 11463,
+  "UpdatedById": 9544,
+  "MailDelegationStatusId": null,
+  "MessageTemplateLanguages": [
+    {
+      "MessageLanguageID": 2301,
+      "Subject": "[Portalia] Félicitation, votre contrat de travail est prêt !",
+      "Content": "<p class=\"MsoNormal\"><span lang=\"FR\">Bonjour <b>@Model.UserFirstName</b>,<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Votre contrat detravail est désormais prêt et n’attend plus que vous. Vous y accéderez via </span><a href=\"@Model.MyPersonalSpaceUrl\"><span lang=\"FR\">votre espace personnel</span></a><span lang=\"FR\">, dans l’onglet « <b>Contrats</b>&nbsp;» de votre espace.<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Une fois passé enrevue, vous devrez le signer et nous le renvoyer afin que nous terminions leprocessus d’entrée chez Portalia.<o:p></o:p></span></p><p class=\"MsoNormal\"><span lang=\"FR\">Si vous avez lamoindre question, vous pouvez nous contacter à l’adresse </span><a href=\"mailto:PORTALIA_HR@PORTALIA.FR\"><span lang=\"FR\">portalia_hr@portalia.fr</span></a><span lang=\"FR\"> pour que nous puissions vous aider.<o:p></o:p></span></p>",
+      "LanguageID": "en",
+      "CreatedDate": "2019-01-11T07:37:30.17584",
+      "UpdatedDate": "2019-01-11T10:32:13.7882677",
+      "CreatedById": 11463,
+      "UpdatedById": 9544
+    }
+  ],
+  "PriorityId": 2
+}

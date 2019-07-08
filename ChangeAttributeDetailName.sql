@@ -1,0 +1,1 @@
+update [dbo].[AttributeDetail] set name = 'Nationality' where name ='Nationalities'

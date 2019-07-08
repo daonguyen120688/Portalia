@@ -1,0 +1,59 @@
+﻿@using Portalia.Extentions
+@model Portalia.ViewModels.ContactUsViewModel
+@{
+    ViewBag.Title = "Contact";
+}
+<script src="//www.google.com/recaptcha/api.js" async defer></script>
+<div class="inscription-window" id="inscription" style="display: block;">
+    <a style="position: fixed;top:20px;right:35px;font-size: 1em;margin: 0; z-index: 1;" href="@Url.Action("Index")"><i class="fa fa-window-close"></i></a>
+    <div id="form" style="display: block">
+        <h3 style="text-align: center;">Entrons en contact</h3>
+        @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { @class = "inscription-form" }))
+        {
+            @Html.ValidationSummary("", new {@class = "text-danger"})
+            <div class="line-form">
+                <div class="item-form">
+                    <label class="FirstName">Votre prénom</label>
+                    @Html.TextBoxFor(c => c.FirstName, new { @class = "input-type-text", @placeholder = "Votre prénom" })
+                    @Html.ValidationMessageFor(c => c.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="item-form">
+                    <label class="LastName">Votre nom</label>
+                    @Html.TextBoxFor(c => c.LastName, new { @class = "input-type-text", @placeholder = "Votre nom" })
+                    @Html.ValidationMessageFor(c => c.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="line-form">
+                <div class="item-form">
+                    <label class="entypo-mail">Votre adresse-mail</label>
+                    @Html.TextBoxFor(c => c.Email, new { @class = "input-type-text", @placeholder = "email" })
+                    @Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="item-form">
+                    <label class="entypo-phone">Votre téléphone</label>
+                    @Html.TextBoxFor(c => c.Phone, new { @class = "input-type-text", @placeholder = "+33" })
+                    @Html.ValidationMessageFor(c => c.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="line-form" style="display:block;">
+                <label class="entypo-comment" style="width: 100%;">Votre message</label>
+                @Html.TextBoxFor(c => c.Object, new { @class = "input-type-text", @placeholder = "Objet" })
+                @Html.ValidationMessageFor(c => c.Object, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(c => c.Message, "", new { @class = "message", wrap = "hard", placeholder = "Indiquez votre message" })
+                @Html.ValidationMessageFor(c => c.Message, "", new { @class = "text-danger" })
+            </div>
+            <div class="line-form" style="display:block;">
+                <p>
+                    <input type="checkbox" class="checkbox-homepage" id="consent">
+                    <label style="font-size: 12px;" for="consent">Portalia souhaite utiliser vos informations personnelles dans le cadre d'une prospection. Vous pouvez en apprendre plus sur notre politique de données sur <a href="@Url.Action("MentionLegales", "Home")" style="font-weight: 600;color: rgb(31, 112, 191);"> cette page</a>.</label>
+                </p>
+            </div>
+            <div class="line-form" style="display:block;">
+                <p>
+                    @Html.GenerateCaptcha()
+                </p>
+            </div>
+            <input value="Envoyer votre message" class="input-button" style="text-align: center;display: block;margin: 25px auto 5px;font-size: 16px;" type="submit">
+        }
+    </div>
+</div>

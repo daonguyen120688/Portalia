@@ -1,0 +1,371 @@
+﻿/* Table Controller */
+.table__controller {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.table__button-group {
+    display: flex;
+}
+
+.table__button {
+    font-size: 12px;
+    border-radius: 50px;
+    padding: 8px 20px;
+    margin-right: 5px;
+    color: #fff;
+    border: 1px solid #1f79e0;
+    background-color: #1f79e0;
+    transition: all 0.3s ease;
+}
+
+    .table__button:focus {
+        color: #fff;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    .table__button:hover {
+        color: #fff;
+        border-color: #23d37b;
+        background-color: #23d37b;
+    }
+
+.table__filter-group {
+    display: flex;
+}
+
+.table__label {
+    color: #4c6875;
+    font-size: 12px;
+    font-weight: 700;
+    padding-right: 5px;
+}
+
+.table__filter {
+    font-size: 12px;
+    padding: 8px 25px 8px 15px;
+    border-radius: 50px;
+    border: 1px solid #333;
+}
+
+    .table__filter:focus {
+        outline: 0;
+        border-color: #1f79e0;
+    }
+
+.table__filter-employee {
+    position: relative;
+}
+
+.table__filter-wc-status {
+    margin-left: 30px;
+    position: relative;
+}
+
+.table__filter-username {
+    margin-left: 30px;
+    position: relative;
+}
+
+.table__select-filter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-expand: none;
+}
+
+.table__input-filter {
+}
+
+    .table__input-filter::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        opacity: 0;
+    }
+
+    .table__input-filter::-moz-placeholder { /* Firefox 19+ */
+        opacity: 0;
+    }
+
+    .table__input-filter:-ms-input-placeholder { /* IE 10+ */
+        opacity: 0;
+    }
+
+    .table__input-filter:-moz-placeholder { /* Firefox 18- */
+        opacity: 0;
+    }
+
+.table__control-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.table__control-icon--search {
+    opacity: 0.2;
+}
+
+.table__indicator {
+    min-height: 1081px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+.table__indicator:after {
+    width: 100px;
+    height: 100px;
+}
+/* End of Table Controller */
+
+
+/* Table */
+.table--user-list {
+    table-layout: fixed;
+    font-size: 12px;
+}
+
+    .table--user-list thead .user {
+        width: 200px;
+    }
+
+    .table--user-list thead .percent {
+        width: 100px;
+    }
+
+    .table--user-list thead .email {
+        width: 200px;
+    }
+
+    .table--user-list thead .form-action {
+        width: 125px;
+    }
+
+    .table--user-list tbody .email {
+        word-break: break-all;
+    }
+
+    .table--user-list tbody .user-wrapper {
+        display: flex;
+    }
+
+    .table--user-list tbody .wc-status {
+        font-size: 12px;
+    }
+
+    .table--user-list .wc-status__text--light-purple {
+        color: #7986cb;
+    }
+
+    .table--user-list .wc-status__text--purple {
+        color: #9f4caf;
+    }
+
+    .table--user-list .wc-status__text--grey {
+        color: #7f7f7f;
+    }
+
+    .table--user-list .wc-status__text--blue {
+        color: #1F79E0;
+    }
+
+    .table--user-list .wc-status__text--yellow {
+        color: #ff9800;
+    }
+
+    .table--user-list .user-image-wrapper {
+        flex: 1 0 45px;
+        max-width: 45px;
+        margin-right: 5px;
+    }
+
+    .table--user-list .user-info-wrapper {
+        flex: 1 0 calc(100% - 45px);
+        max-width: calc(100% - 45px);
+    }
+
+    .table--user-list .user-name {
+    }
+
+    .table--user-list .wc-action-button {
+        font-size: 12px;
+        color: #1f79e0;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+    }
+
+        .table--user-list .wc-action-button:last-child {
+            margin-right: 0;
+        }
+
+.table__pagination {
+    display: flex;
+    justify-content: center;
+}
+
+    .table__pagination .pagination > li > a,
+    .table__pagination .pagination > li > span {
+        color: #1f79e0;
+        min-width: 40px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .table__pagination .pagination > .active > a,
+    .table__pagination .pagination > .active > span,
+    .table__pagination .pagination > .active > a:hover,
+    .table__pagination .pagination > .active > span:hover,
+    .table__pagination .pagination > .active > a:focus,
+    .table__pagination .pagination > .active > span:focus {
+        color: #fff;
+        border-color: #1f79e0;
+        background-color: #1f79e0;
+    }
+
+/* End of Table */
+
+
+@media screen and (max-width: 1200px) {
+    .table__controller {
+        display: block;
+    }
+
+    .table__button-group {
+        margin-bottom: 15px;
+    }
+
+    .table__filter-group {
+        justify-content: flex-end;
+    }
+
+    .table--user-list {
+        table-layout: auto;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .table__filter-group {
+        flex-wrap: wrap;
+        margin: 0 -10px;
+    }
+
+    .table__label {
+        display: block;
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+
+    .table__select-filter {
+        width: 100%;
+    }
+
+    .table__control-icon {
+        right: 20px;
+    }
+
+    .table__select-filter + .table__control-icon {
+        top: auto;
+        bottom: 10px;
+        transform: none;
+    }
+
+    .table__filter-employee {
+        flex: 1 0 50%;
+        max-width: 50%;
+        padding: 0 10px;
+    }
+
+    .table__filter-wc-status {
+        margin-left: 0;
+        flex: 1 0 50%;
+        max-width: 50%;
+        padding: 0 10px;
+    }
+
+    .table__filter-username {
+        margin-left: 0;
+        margin-top: 15px;
+        flex: 1 0 100%;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+        .table__filter-username .table__label {
+            display: none;
+        }
+
+    .table__input-filter {
+        width: 100%;
+    }
+
+        .table__input-filter::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            opacity: 1;
+        }
+
+        .table__input-filter::-moz-placeholder { /* Firefox 19+ */
+            opacity: 1;
+        }
+
+        .table__input-filter:-ms-input-placeholder { /* IE 10+ */
+            opacity: 1;
+        }
+
+        .table__input-filter:-moz-placeholder { /* Firefox 18- */
+            opacity: 1;
+        }
+}
+
+@media screen and (max-width: 767px) {
+    .table--user-list .user-wrapper {
+        width: 250px;
+    }
+
+    .table--user-list .user-name {
+        white-space: normal;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    .table__filter-username {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .table__button-group {
+        display: block;
+    }
+
+    .table__button {
+        display: block;
+        padding: 12px 20px;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .table__filter-employee {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .table__filter-wc-status {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin-top: 15px;
+    }
+
+    .table__filter-username {
+        margin-top: 30px;
+    }
+
+    .table__pagination .pagination > li > a,
+    .table__pagination .pagination > li > span {
+        padding: 4px;
+        min-width: 30px;
+    }
+}

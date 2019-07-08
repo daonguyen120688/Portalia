@@ -1,0 +1,356 @@
+﻿@using Portalia.Extentions
+@model Portalia.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+    ViewBag.Title = "Inscrivez-vous sur Portalia.fr et devenez salarié indépendant";
+    ViewBag.Description = "Inscrivez-vous sur Portalia.fr et bénéficiez d'un réseau étendu d'entreprises partenaires ainsi que de nombreuses fonctionnalités pour gérer votre activité.";
+}
+@{
+    var genders = new List<SelectListItem>
+    ()
+{
+new SelectListItem()
+{
+Text = "Homme",Value = "1"
+},
+new SelectListItem()
+{
+Text = "Femme",Value = "2"
+}
+};
+    var fullName = Model != null ? $"{Model.FirstName} {Model.LastName}" : "";
+    var hasNoName = string.IsNullOrEmpty(fullName);
+}
+
+<script src="//www.google.com/recaptcha/api.js" async defer></script>
+@section scripts {
+    @Scripts.Render("~/bundles/user")
+    <script>
+        register.initializeEvents();
+    </script>
+}
+
+<section class="section-register">
+    <div class="register">
+        <div class="register__wrapper">
+            <div class="register__form-wrapper">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "register__form" }))
+                {
+                    <input type="hidden" value="@Url.Action("IsUserNameValid")" id="is-user-name-valid-url" />
+
+                    <h1 class="register__form-title">Inscrivez-vous</h1>
+                    <div class="register__form-to-login">
+                        <span>Ou </span>
+                        @Html.ActionLink("Connectez-vous à votre compte", "Login", "Account", null, new { @class = "register__form-to-login-link" })
+                    </div>
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "register__form-message" })
+
+                    @Html.HiddenFor(s => s.Location)
+
+                    @Html.DropDownListFor(m => m.Gender, genders, new { @class = "register__form-control register__form-control--gene" })
+
+                    <div class="register__form-group-wrapper">
+                        <div class="register__form-group register__form-group--width-50">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "register__form-control register__form-control--width-50", placeholder = "Prénom" })
+                            @Html.ValidationMessageFor(c => c.FirstName, "", new { @class = "register__form-message register__form-message--width-50" })
+                        </div>
+
+                        <div class="register__form-group register__form-group--width-50">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "register__form-control register__form-control--width-50", placeholder = "Nom" })
+                            @Html.ValidationMessageFor(c => c.LastName, "", new { @class = "register__form-message register__form-message--width-50" })
+                        </div>
+                    </div>
+
+                    <div class="register__form-group-wrapper register__form-group-wrapper--vertical">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "register__form-control", placeholder = "E-mail" })
+                        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "register__form-message" })
+                    </div>
+
+                    <div class="register__form-group-wrapper register__form-group-wrapper--vertical">
+                        @Html.PasswordFor(m => m.Password, new { @class = "register__form-control register__form-control--password", placeholder = "Mot de passe" })
+                        @Html.ValidationMessageFor(c => c.Password, "", new { @class = "register__form-message" })
+                    </div>
+
+                    <div class="password-valid-message mobile">
+                        <p>Pour une meilleur protection, votre mot de passe doit comporter au moins:</p>
+                        <p class="valid-message error password-validate-8-char">8 caractères <i class="fas fa-check"></i></p>
+                        <p class="valid-message error password-validate-char">Une majuscule & une minuscule <i class="fas fa-check"></i></p>
+                        <p class="valid-message error password-validate-number">Un chiffre (de 0 à 9) <i class="fas fa-check"></i></p>
+                        <p class="valid-message error password-validate-special-char">Un caractère spécial <i class="fas fa-check"></i></p>
+                    </div>
+
+                    <div class="register__form-group-wrapper register__form-group-wrapper--vertical">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "register__form-control", placeholder = "Confirmer votre mot de passe" })
+                        @Html.ValidationMessageFor(c => c.ConfirmPassword, "", new { @class = "register__form-message" })
+                    </div>
+
+                    <div class="register__form-checkbox">
+                        <input class='register__form-control register__form-control--checkbox' type='checkbox' id='register-legal-terms' />
+                        <label class='register__form-label' for='register-legal-terms'>
+                            J'accepte
+                            <a class='register__form-label-link' href='/mentions-legales' target='_blank'>les conditions d'utilisation</a>
+                            et
+                            <a class='register__form-label-link' href='/politique-confidentialite' target='_blank'>politique de confidentialité</a>
+                            de Portalia
+                        </label>
+                    </div>
+
+                    <div class="register__form-g-recaptcha">
+                        @*     @Html.GenerateCaptcha()*@
+                    </div>
+
+                    <a href="javascript:void(0);" class="register__form-btn register__form-btn--blue register__form-btn--show-convention"
+                       data-indicator=".indicator"
+                       data-btn-container=".register__btn-container">
+                        <div class="register__btn-container">
+                            <span>Suivant</span>
+                            <img class="register__form-btn-icon" src="https://cdn.o2f-it.com/21216/arrow-right_png" alt="">
+                        </div>
+                        <div class="hidden indicator">
+                            <i class="fa fa-spinner fa-spin" style="color: white;"></i>
+                        </div>
+
+                    </a>
+
+                    <button class="register__form-btn register__form-btn--hidden register__form-btn--submit" type="submit">Submit</button>
+                }
+                <div class="register__form-message-section register__step-2 register__form-message-section--fadeout register__form-message-section--hidden">
+                    <div class="register__form-message-section-title">
+                        <span>Nous avons fini la première étape de votre inscription</span>
+                    </div>
+                    <div class="register__form-message-section-text">
+                        <span>Afin de terminer la création de votre compte Portalia, vous devez prendre connaissance de la <a class="register__form-convention-btn" href="javascript:void(0);">convention de portage salariale</a> ci-joint.</span>
+                    </div>
+                    <div class="register__form-message-section-text register__form-message-section-text--small">
+                        <span>Ou</span>
+                    </div>
+                    <a href="javascript:void(0);" class="register__form-btn register__form-btn--back">
+                        <img class="register__form-btn-icon" src="https://cdn.o2f-it.com/21217/arrow-left_png" alt="">
+                        <span>Modifiez vos informations</span>
+                    </a>
+                </div>
+                <div class="register__form-message-section register__step-3 register__form-message-section--fadeout register__form-message-section--hidden">
+                    <div class="register__form-message-section-title">
+                        <span>Merci de votre confiance !</span>
+                    </div>
+                    <div class="register__form-message-section-text">
+                        <span>Il ne vous reste plus qu'à valider votre inscription pour commencer votre activité.</span>
+                    </div>
+                    <button class="register__form-btn register__form-btn--blue register__form-btn--finish">Finaliser l'inscription</button>
+                    <div class="register__form-message-section-text register__form-message-section-text--small">
+                        <span>Ou</span>
+                    </div>
+                    <a href="javascript:void(0);" class="register__form-btn register__form-btn--back">
+                        <img class="register__form-btn-icon" src="https://cdn.o2f-it.com/21217/arrow-left_png" alt="">
+                        <span>Modifier certains éléments</span>
+                    </a>
+                </div>
+            </div>
+            <div class="register__contract-wrapper">
+                <div class="register__contract">
+                    <div class="register__contract-backdrop">
+                        <img class="register__contract-backdrop-img" src="https://cdn.o2f-it.com/download/21215/bg-register-portalia-alt.jpg" alt="register-back-drop" />
+                    </div>
+                    <div class="register__contract-container">
+                        <h2 class="register__contract-title">Convention de Portage salarial</h2>
+                        <div class="register__contract-content">
+                            <p>ENTRE LES SOUSSIGNES :</p>
+                            <p><strong>La Société PORTALIA</strong></p>
+                            <p>Dont le siège social est établi à 28 rue Jacques Ibert, 92300 Levallois-Perret</p>
+                            <p>Immatriculation au RCS : 820 738 771</p>
+                            <p>Code NAF: 8299Z</p>
+                            <p>Représentée par Monsieur Pierrick ROCHER en qualité de Directeur,</p>
+                            <p>Ci-après dénommée « l’Employeur », « l’entreprise de portage » ou la « Société »</p>
+                            <p>D’une part,</p>
+                            <p>Et: </p>
+                            <p id="replace-name"><strong>@(!hasNoName ? fullName : "")<i>@(hasNoName ? "<Entrez votre nom>" : "")</i></strong></p>
+                            <p>Ci-après dénommé(e) « le Salarié porté »</p>
+                            <p>D’autre part,</p>
+                            <p>
+                                <strong>
+                                    <u>PREAMBULE : </u>
+                                </strong>
+                            </p>
+                            <p>PORTALIA est une entreprise exerçant l’activité de portage salarial au sens de l’article L1254-24 du Code du travail. </p>
+                            <p>La présente convention a pour objet d’organiser la collaboration entre Portalia et le salarié porté. Elle vient fixer les modalités d’hébergement de l’activité du consultant et lister les engagements réciproques des parties. </p>
+                            <p>La présente convention pourra être conclue dès l’arrivée du consultant au service de la société Portalia et alors même que celui-ci n’aurait pas encore proposé de mission.</p>
+                            <p>Postérieurement à la signature de la présente convention et lors de chaque nouvelle mission, un contrat de travail, ou de mission le cas échéant, reprenant notamment les éléments de rémunération afférents à cette nouvelle mission viendra cadrer l’exécution de la prestation chez le client. </p>
+                            <p>Enfin, le Salarié porté certifie être libre de tout engagement et notamment de ne pas être soumis à une clause de non concurrence susceptible de mettre en cause solidairement la responsabilité de l'entreprise de portage.</p>
+
+                            <p class="text-center">
+                                <strong>
+                                    <u>IL A ETE CONVENU CE QUI SUIT :</u>
+                                </strong>
+                            </p>
+
+                            <p>
+                                <strong>
+                                    <u>ARTICLE 1. ENGAGEMENTS RESPECTIFS DES PARTIES</u>
+                                </strong>
+                            </p>
+
+                            <p>
+                                <u>ARTICLE 1.1. RESPECT DES REGLES INTERNES ET DEONTOLOGIE</u>
+                            </p>
+
+                            <p>Le Salarié s'engage à respecter les directives et instructions émanant de la direction de la Société d‘une part, et de l’entreprise de mission d’autre part, et ce dans le cadre des méthodes et du savoir-faire desdites sociétés. </p>
+                            <p>Dans les locaux des Entreprises Clientes, le Salarié se conformera aux règlements intérieurs en vigueur, notamment en matière de respect des règles d'hygiène, de sécurité, de confidentialité et d'horaire. </p>
+                            <p>Le Salarié porté sera responsable de la réalisation des prestations intellectuelles relevant de ses compétences telles que décrites dans les contrats commerciaux qu'il aura préalablement établis et négociés. A ce titre, il rendra compte, sans délai, de toute difficulté liée à l'exécution de sa prestation.  </p>
+                            <p>Il participera, aux côtés des services administratifs, au suivi du paiement régulier des montants facturés. </p>
+                            <p>
+                                <u>ARTICLE 1.2. OBLIGATION DE LOYAUTE</u>
+                            </p>
+                            <p>Dans le cadre de son activité, le Salarié s’engage à toujours agir de manière loyale et de bonne foi dans l’exécution de son contrat de travail.</p>
+                            <p>Sont notamment considérés comme déloyaux et fautifs, sans pour autant que cette liste soit exhaustive, tous les actes visant à détourner la clientèle ou les commandes, dénigrer son employeur ou ancien employeur, détourner des fichiers, dévoiler des secrets commerciaux, semer la confusion dans l’esprit de la clientèle, inciter une personne travaillant pour son ancien employeur à quitter celui-ci. </p>
+                            <p>
+                                <u>ARTICLE 1.3. OBLIGATION DE CONFIDENTIALITE</u>
+                            </p>
+                            <p>L’Employé s’engage, aussi bien pendant l’exécution du contrat de travail qu’après la fin de celui-ci, quelle qu’en soit la cause, à garder le secret sur toute information confidentielle dont il aurait eu connaissance au cours de l'exercice de son activité professionnelle, soit chez l'Employeur, la clientèle de la Société ou ses partenaires commerciaux.</p>
+                            <p>Seront considérées comme confidentielles les informations suivantes, sans que cette liste ne soit limitative :</p>
+                            <ul>
+                                <li>L’identité des clients, réels ou potentiels, et des partenaires commerciaux de la Société;</li>
+                            </ul>
+                            <ul>
+                                <li>Le détail des relations commerciales et conditions contractuelles, notamment le montant des contrats, signés ou en cours de négociation ;</li>
+                            </ul>
+                            <ul>
+                                <li>Le détail des méthodes commerciales, de la stratégie financière, du marketing, du développement, des plans managériaux, des plans d’actions ou encore des prévisions d’activité de la Société ;</li>
+                            </ul>
+                            <ul>
+                                <li>Les informations confidentielles divulguées à la Société par une partie extérieure ;</li>
+                            </ul>
+                            <ul>
+                                <li>Toutes autres informations relatives à la Société ou à un client ou partenaire commercial de la Société pouvant raisonnablement être considérées confidentielles.</li>
+                            </ul>
+                            <p>Au regard de l’obligation mentionnée précédemment, le salarié s'engage, sauf accord écrit préalable de la part de sa hiérarchie, à :</p>
+                            <ul>
+                                <li>ne pas communiquer à des tiers, en totalité ou en partie, tout document relatif à l’activité de la Société ou son organisation ;</li>
+                            </ul>
+                            <ul>
+                                <li>ne pas divulguer aux médias l'objectif commercial ou toute activité exercée par la société, ses clients ou ses partenaires commerciaux ou tout autre document concernant l’activité ;</li>
+                            </ul>
+                            <ul>
+                                <li>de ne pas copier ou reproduire tout essai ou document ou d'utiliser tout équipement de la Société, de la clientèle de la Société ou ses partenaires commerciaux, pour des raisons personnelles ou à des fins non autorisées.</li>
+                            </ul>
+                            <p>L’activité de la Société et son organisation inclut, sans aucune limitation, l’administration, les activités, les secrets d'entreprise, les tactiques, les études (administratives, commerciales, industrielles et financières), le processus de production, les méthodes administratives et commerciales, les résultats financiers, les projets, les politiques mises en œuvre par la Société, la clientèle de la Société ou ses partenaires commerciaux.</p>
+                            <p>L’Employé s’engage à remettre à l’Employeur, à la fin du présent contrat de travail, toutes les informations confidentielles, toutes les bases de données, documents, supports numériques, clés d'accès, codes mis à sa disposition dans le cadre de l'exercice de sa fonction, et ce au plus tard à la fin de la période de préavis.</p>
+                            <p>A la demande de l’Employeur, l’Employé s’engage également à retourner tout document confidentiel au cours de l’exécution de son contrat de travail. </p>
+                            <p>Au cours de l’exécution du contrat de travail, la violation de cette obligation est constitutive d’une faute pouvant entrainer une sanction disciplinaire allant jusqu’au licenciement, sans préjudice d’une éventuelle action en réparation du préjudice subie par la Société.  </p>
+                            <p>En cas de violation de cette obligation à l’issue de la rupture du contrat, quelle que soit l’origine de la rupture, l’entreprise se garde le droit d’intenter toute action en justice à l’encontre du Salarié, et pourra réclamer le paiement de dommages et intérêts.</p>
+                            <p>
+                                <u>ARTICLE 1.4. ABSENCES </u>
+                            </p>
+                            <p>Le Salarié s’engage à informer sans délai la Société de toute absence en cours de mission et de justifier des raisons de celle-ci dans les 48 heures par tout justificatif valable (certificat médical le cas échéant). En l’absence de justification, l’inexécution totale ou partielle d’une mission pourra être considérée comme un manquement du Salarié porté à ses obligations contractuelles. </p>
+                            <p>
+                                <u>ARTICLE 1.5. PROSPECTION </u>
+                            </p>
+                            <p>Lorsque le Salarié porté n'effectue plus aucune mission, il s'engage à prospecter activement des clients. La recherche porte sur des missions pour lesquelles le salarié porté s’estime tout à fait compétent, au regard de sa formation et de son expérience professionnelle.</p>
+                            <p>Le porté peut, pour les besoins de sa recherche de missions, se prévaloir de ses liens avec la société de portage salarial et disposer de documentations commerciales et publicitaires de la Société PORTALIA. Tout document contractuel doit être établi par la Société PORTALIA sur du papier à en-tête. Néanmoins, un logo personnel peut apparaître sur des documents utilisés dans le cadre de la prospection commerciale.</p>
+                            <p>La société se réserve le droit de ne pas accepter telle ou telle intervention pour quelque raison que ce soit. </p>
+                            <p>Il est convenu que le Salarié porté doit fournir à la société chaque mois et au plus tard le 5 du mois suivant la preuve écrite qu'il recherche une nouvelle mission. Les justificatifs écrits tels que des échanges de mail ou des réponses négatives doivent être joints.</p>
+                            <p>La Société accompagnera le Salarié pour lui permettre un développement de nouvelles missions, et s’engage notamment à fournir un conseil personnalisé et qualifié auprès du Porté tout au long de leur collaboration.</p>
+                            <p>
+                                <u>ARTICLE 1.6. UTILISATION D’UN VEHICULE DANS LE CADRE DES DEPLACEMENTS PROFESSIONNELS</u>
+                            </p>
+                            <p>Le Salarié s’engage à respecter la législation régissant la conduite des véhicules automobiles lorsqu’il utilise, dans le cadre de ses déplacements professionnels, un véhicule dont il est le propriétaire, ou un véhicule loué par la Société, dans le cadre de la mission confiée au Salarié.</p>
+                            <p>Le Salarié reconnaît que l’usage de son véhicule personnel pour les besoins de son activité professionnelle, et notamment pour se rendre en clientèle, est assimilable à l’usage « déplacements professionnels » couvert par une assurance dite « affaires », et s’engage par la présente à vérifier que son assurance couvre bien cet usage et, si tel n’était pas le cas, à souscrire l’assurance requise et à en justifier dès son embauche.</p>
+
+                            <p>
+                                <strong>
+                                    <u>ARTICLE 2. MISE EN PLACE D’UN COMPTE D’ACTIVITE</u>
+                                </strong>
+                            </p>
+                            <p>L’entreprise met en place et gère un compte d’activité pour le salarié porté. </p>
+                            <p>Le salarié porté est informé une fois par mois des éléments imputés sur ce compte, et notamment de tout versement effectué par l’entreprise cliente au titre de la prestation, du détail des frais de gestion, des frais professionnels, des prélèvements sociaux et fiscaux, de la rémunération nette et du montant de l’indemnité de l’apport d’affaires.</p>
+                            <p>La provision et l’utilisation des sommes disponibles sur le compte d’activité se feront uniquement dans le respect des règles légales et conventionnelles applicables.</p>
+
+                            <p>
+                                <strong>
+                                    <u>ARTICLE 3. TEMPS DE TRAVAIL </u>
+                                </strong>
+                            </p>
+
+                            <p>
+                                <u>Article 3.1. Durée du travail</u>
+                            </p>
+
+                            <p>La durée du travail sera définie par avenant à chaque renouvellement de mission du Salarié porté. </p>
+                            <p>Par principe, le salarié porté est autonome dans l’organisation de son emploi du temps pour l’accomplissement de ses missions. Il en résulte qu’il peut modifier sa durée de travail et fixer ses horaires en les adaptant aux exigences de la mission en cours ou de ses nouvelles missions, dans le respect des exigences légales et réglementaires.</p>
+
+                            <p>
+                                <u>Article 3.2. Suivi de la charge de travail</u>
+                            </p>
+
+                            <p>L’entreprise de portage salarial s’assure régulièrement que la charge de travail du salarié est raisonnable et permet notamment le respect des durées maximales de travail et par voie de conséquences le respect du droit au repos.</p>
+                            <p>Cette vigilance s’effectue à réception de chaque compte rendu mensuel d’activité, ainsi que par la mise en place d’entretien de suivi de la charge de travail du salarié. </p>
+
+                            <p>
+                                <strong>
+                                    <u>ARTICLE 4. REMUNERATION </u>
+                                </strong>
+                            </p>
+
+                            <p>En contrepartie de son activité telle que définie, le Salarié porté recevra une rémunération décomposée en trois parties : </p>
+                            <p><strong>Une partie fixe</strong> décomposée comme suit :</p>
+                            <ul>
+                                <li>Le salaire minimum conventionnel calculé au prorata du nombre de jours d’activité déclarés par le salarié sur sa feuille mensuelle d’activité, contrôlée et acceptée par la société,</li>
+                            </ul>
+                            <ul>
+                                <li>Une réserve financière égale à 10% du salaire de base de la dernière mission, constituée sur le compte d’activité.</li>
+                            </ul>
+                            <p><strong>Une partie variable</strong> (le salaire complémentaire) calculée à partir de la marge opérationnelle dégagée par l’activité du salarié porté.</p>
+                            <p><strong>Une indemnité d'apport d'affaires</strong> fixée à 5% de la rémunération totale due au salarié ; qui se compose des parties variable et fixe susmentionnées.</p>
+
+                            <p>
+                                <strong>
+                                    <u>ARTICLE 5. FRAIS</u>
+                                </strong>
+                            </p>
+
+                            <p>
+                                <u>ARTICLE 5.1. LES FRAIS DE MISSION</u>
+                            </p>
+
+                            <p>Les frais de mission sont les frais directement liés à l’exécution de la mission. Ils sont facturés au client et remboursés au consultant dès encaissement du paiement de la facture. Ils doivent être prévus dans le « bon de commande », ou négociés a posteriori avec le client.</p>
+                            <p>Les originaux des justificatifs des frais doivent être envoyés à la société PORTALIA qui les fait parvenir au client avec la facture.</p>
+                            <p>Ces frais de mission ne sont pas pris en compte dans le calcul du chiffre d’affaires du salarié. De plus, la rémunération de la société PORTALIA ne s’applique pas sur ces frais.</p>
+
+                            <p><u>ARTICLE 5.2. LES FRAIS DE FONCTIONNEMENT</u></p>
+
+                            <p>Les frais de fonctionnement sont les frais liés à l’activité propre du salarié. Ils ne sont pas facturés au client. </p>
+                            <p>Les frais engagés avec l’accord de la société seront remboursés sur justificatifs selon les procédures de la société et dans le respect du cadre légal et réglementaire, y compris les frais kilométriques-voiture d’après le barème fiscale en vigueur. </p>
+                            <p>Ces frais et dépenses seront portés au débit du compte d'activité du salarié.</p>
+                            <p>Le salarié établit mensuellement une seule note de frais. </p>
+
+                            <p><u>ARTICLE 5.3. FRAIS DE GESTION</u></p>
+
+                            <p>Des frais de gestion seront prélevés par la Société sur le chiffre d’affaire mensuel du Salarié porté. Ces frais s’expriment en pourcentage des honoraires (hors TVA) facturés et encaissés sur le compte ouvert au nom du Porté dans les livres comptables de PORTALIA.<br />Les frais de gestion sont calculés en pourcentage du chiffre d’affaire (honoraires hors frais) facturé hors TVA  = les frais seront prévus dans le contrat de travail et de mission.</p>
+                            <p>Parallèlement à ces frais de gestion, des frais additionnels liés au bon fonctionnement de la Société Portalia pourront être prélevés sur le chiffre d’affaire mensuel du salarié. Ces frais seront assimilés à des frais de gestion quant à leur nature et ainsi déduits du chiffre d’affaire mensuel du salarié.</p>
+
+                            <p>
+                                <strong>
+                                    <u>ARTICLE 6. LIBERTE CONTRACTUELLE </u>
+                                </strong>
+                            </p>
+                            <p>Le Salarié porté n’est tenu par aucune clause d’exclusivité durant l’exécution du présent contrat. </p>
+                            <p>Il s’engage néanmoins à informer la Société de portage du ou des autres contrats de travail qu’il aurait conclu par ailleurs. </p>
+                        </div>
+                        <div class="register__form-sign-convention">
+                            <button class="register__form-btn register__form-btn--green register__form-btn--confirm register__form-btn--disabled">Lu et approuvé, bon pour accord</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="register__contract-close">Close</a>
+            </div>
+        </div>
+        <div class="password-valid-message">
+            <p>Pour une meilleur protection, votre mot de passe doit comporter au moins:</p>
+            <p class="valid-message error password-validate-8-char">8 caractères <i class="fas fa-check"></i></p>
+            <p class="valid-message error password-validate-char">Une majuscule & une minuscule <i class="fas fa-check"></i></p>
+            <p class="valid-message error password-validate-number">Un chiffre (de 0 à 9) <i class="fas fa-check"></i></p>
+            <p class="valid-message error password-validate-special-char">Un caractère spécial <i class="fas fa-check"></i></p>
+        </div>
+    </div>
+</section>
+

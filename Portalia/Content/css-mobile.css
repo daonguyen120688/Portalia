@@ -1,0 +1,1082 @@
+@media screen and (max-width: 1500px) {
+    .portal-header {
+        width: calc(40% - 1px);
+    }
+
+    .portal-header--login {
+        width: 100%;
+    }
+
+    .register__form {
+        padding: 80px 100px 0;
+    }
+
+    .register__form-wrapper {
+        -webkit-flex: 0 0 40%;
+        flex: 0 0 40%;
+        max-width: 40%;
+        height: 100vh;
+    }
+
+    .register__contract-wrapper {
+        -webkit-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+
+    .register__contract-backdrop-img {
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: 100%;
+        max-width: none;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .register__form {
+        padding: 80px 80px 0;
+    }
+}
+
+@media screen and (max-width: 1139px) {
+
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        margin: 0;
+        width: 100%;
+        color: #444;
+        -ms-overflow-x: hidden;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    h1, h2, li, a, h3, label {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    h4 {
+        font-family: 'Roboto', cursive;
+    }
+
+    p {
+        font-family: 'Roboto', cursive;
+        font-size: 16px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #444;
+    }
+
+        a:hover {
+            text-decoration: none;
+            color: var(--blue-onboard);
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+    :root {
+        --vert-portalia: #43ceba;
+        --blue-portalia: #0173bc;
+        --smooth: cubic-bezier(.79,.06,.29,.96);
+    }
+
+    /* --- HEADER ---*/
+    .menu-header {
+        width: 100%;
+        display: block;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        position: fixed;
+        left: 0;
+        z-index: 999;
+        background: white;
+        padding: 15px;
+    }
+
+    .logo-container {
+        float: left;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        min-width: 0;
+    }
+
+    .menu {
+        float: right;
+    }
+
+    #menu-mobile {
+        display: none;
+    }
+
+    .menu > a {
+        font-weight: 600;
+        margin-right: 22px;
+        color: #4d4d4d;
+        font-size: 18px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+        .menu > a:hover {
+            color: #099ed8;
+        }
+
+    #partner, #partnertext, #partnerimg, #partnerinfo {
+        display: none;
+    }
+
+    .button-green {
+        background: linear-gradient(90deg, var(--vert-portalia),#0794b3);
+        border: none;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white !important;
+        margin-right: 5px !important;
+        display: inline-flex;
+        list-style: none;
+    }
+
+    .button-blue {
+        background: linear-gradient(90deg, #43a3ea 0%,#39679c);
+        border: none;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white !important;
+        margin-right: 5px !important;
+        display: inline-flex;
+        list-style: none;
+    }
+
+    .button-green-txt {
+        font-size: 14px;
+    }
+
+    .full-header {
+        width: 100%;
+        z-index: 0;
+        padding-top: 155px;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        padding: 87px 47px;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .small-user-name {
+        font-family: Montserrat,sans-serif;
+        margin: 0 0 5px;
+        color: #696969;
+        font-size: 14px;
+    }
+
+    /*---HERO - */
+    .hero-message {
+        position: absolute;
+        bottom: 15vh;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title-border > h2 {
+        font-size: 1.8em;
+        font-weight: 400;
+    }
+
+    .input-text {
+        background: white;
+        border: solid 2px white;
+        font-size: 1em;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        border-radius: 5px;
+        padding: 14px 104px 14px 20px;
+        color: dimgray;
+        transition: all 0.2s ease;
+        margin-bottom: 27px;
+    }
+
+    .input-button {
+        background: var(--vert-portalia);
+        border: none;
+        font-size: 1em;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        border-radius: 5px;
+        padding: 14px 44px;
+        color: white;
+        display: inline-block;
+        width: 300px;
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+
+        .input-button:hover {
+            background: #38da84;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+    #down {
+        display: none;
+    }
+
+
+    .mail-false {
+        border: solid 2px #ff1b0099;
+    }
+
+        .mail-false::before {
+            content: "Mail invalide";
+            color: #ff1b00;
+            display: block;
+        }
+
+    /*----Section ----*/
+
+    section {
+        width: 100%;
+        min-height: 600px;
+        padding: 20px;
+    }
+
+    .box {
+        width: 98%;
+        border-radius: 10px;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        background: white;
+        margin: 10px auto 0px;
+        display: block;
+    }
+
+    .column-line {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px !important;
+    }
+
+    .column-33 {
+        width: 100%;
+        min-height: 250px;
+        border-bottom: solid 1px #d8d8d8;
+        padding: 25px;
+    }
+
+        .column-33 > p {
+            font-size: 0.8em;
+        }
+
+    .column-50 {
+        width: 98%;
+        padding: 15px;
+    }
+
+    .column-100 {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .box-contact {
+        width: 350px;
+        margin: 10px 15px;
+        background: white;
+        height: 550px;
+        border-radius: 10px;
+        box-shadow: 0 4px 9px 0 rgba(23, 28, 33, 0.19);
+        padding: 35px;
+        position: relative;
+    }
+
+        .box-contact > h4 {
+            font-size: 17px;
+            font-weight: 400;
+            text-align: left;
+            color: #7a7a7a;
+            padding-bottom: 20px;
+        }
+
+    .contact-name {
+        display: inline-flex;
+        position: absolute;
+        bottom: 15px;
+        border-top: solid 1px #d4d4d4;
+        padding-top: 13px;
+        width: 280px;
+    }
+
+    .img-contact {
+        margin-right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        border: solid #5ee9a4;
+    }
+
+    .undisplay {
+        display: none;
+    }
+
+    /*---INTERACTION UI --*/
+
+
+    .cta {
+        position: absolute;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+        border: solid 4px #ffffff1a;
+        padding: 3px 13px 5px 15px;
+        border-radius: 50px;
+        transition: all 0.2s ease;
+        animation: pulse;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+
+        .cta:hover {
+            border: solid 4px #ffffff80 !important;
+        }
+
+    @keyframes pulse {
+        0% {
+            border: solid 4px #ffffff1a;
+        }
+
+        50% {
+            border: solid 4px #ffffff80;
+        }
+
+        100% {
+            border: solid 4px #ffffff1a;
+        }
+    }
+
+    #entreprise {
+        top: 190px;
+        left: 331px;
+    }
+
+    #portalia {
+        top: 410px;
+        left: 299px;
+    }
+
+    #employee {
+        top: 251px;
+        left: 103px;
+    }
+
+    .box-description {
+        position: absolute;
+        background: white;
+        height: 250px;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 9px 0 rgba(23, 28, 33, 0.24);
+        padding: 6px 24px;
+        display: none;
+    }
+
+        .box-description > h3 {
+            padding-bottom: 10px;
+            border-bottom: solid 1px #d8d8d8;
+        }
+
+    #description-portalia {
+        top: 400px;
+        right: -83px;
+    }
+
+    #description-employee {
+        top: -10px;
+        left: 0px;
+    }
+
+    #description-entreprise {
+        top: 98px;
+        right: -114px;
+    }
+
+    #back-top {
+        right: auto;
+        left: 50%;
+        bottom: -20px;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    #back-top.active {
+        right: auto;
+    }
+
+    #mail-to.active {
+        right: 20px;
+    }
+
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: absolute;
+        left: -9999px;
+    }
+
+        /* on prépare le label */
+        [type="checkbox"]:not(:checked) + label,
+        [type="checkbox"]:checked + label {
+            position: relative;
+            padding-left: 44px;
+            cursor: pointer;
+            display: block;
+        }
+
+
+            /* :before sert à créer la case à cocher */
+            [type="checkbox"]:not(:checked) + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 2px;
+                width: 17px;
+                height: 17px;
+                border: 3px solid rgb(54, 222, 186);
+                background: rgb(248, 248, 248);
+                border-radius: 20px;
+                box-shadow: 0px 2px 10px rgba(81, 219, 171, 0);
+                transition: all 0.2s ease-in-out;
+            }
+
+            [type="checkbox"]:checked + label::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 2px;
+                width: 17px;
+                height: 17px;
+                border: 3px solid rgb(54, 222, 186);
+                background: rgb(54, 222, 186);
+                border-radius: 20px;
+                box-shadow: 0px 2px 10px rgba(81, 219, 170, 0.73);
+            }
+
+            /* Aspect général de la coche */
+            [type="checkbox"]:not(:checked) + label:after,
+            [type="checkbox"]:checked + label:after {
+                content: '✔';
+                position: absolute;
+                left: 6px;
+                font-size: 14px;
+                color: rgb(255, 255, 255);
+                transition: all .2s;
+                top: 2px;
+            }
+            /* Aspect si "pas cochée" */
+            [type="checkbox"]:not(:checked) + label:after {
+                opacity: 0; /* coche invisible */
+                transform: scale(0); /* mise à l'échelle à 0 */
+            }
+            /* Aspect si "cochée" */
+            [type="checkbox"]:checked + label:after {
+                opacity: 1; /* coche opaque */
+                transform: scale(1); /* mise à l'échelle 1:1 */
+            }
+
+    /* aspect désactivée */
+    [type="checkbox"]:disabled:not(:checked) + label:before,
+    [type="checkbox"]:disabled:checked + label:before {
+        box-shadow: none;
+        border-color: #bbb;
+        background-color: #ddd;
+    }
+    /* styles de la coche (si cochée/désactivée) */
+    [type="checkbox"]:disabled:checked + label:after {
+        color: #999;
+    }
+    /* on style aussi le label quand désactivé */
+    [type="checkbox"]:disabled + label {
+        color: #aaa;
+    }
+
+    /*---COMPANY ----*/
+
+    .profil-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .profil {
+        width: 340px;
+        margin: 10px auto;
+        margin-top: 20px;
+        background: white;
+        height: 243px;
+        border-radius: 10px;
+        box-shadow: 0 4px 9px 0 rgba(23, 28, 33, 0.19);
+        overflow: hidden;
+    }
+
+    .title-equipe {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .subtitle-equipe {
+        margin: 10px auto;
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: 25px;
+        text-align: center;
+        font-weight: 300;
+        margin-bottom: 50px;
+    }
+
+    .img-section-profil {
+        margin: 50px auto;
+        width: 60px;
+        display: block;
+    }
+
+    .img-profil {
+        height: 100px;
+        width: 100px;
+        border-radius: 350px;
+        display: block;
+        margin: 10px auto;
+        border: solid 4px #4beca2;
+    }
+
+    .name-profil {
+        padding: 20px;
+    }
+
+        .name-profil > h3 {
+            font-weight: 400;
+            margin-bottom: 5px;
+            border-bottom: solid 1px #d8d8d8;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #1e1e1e;
+        }
+
+        .name-profil > p {
+            font-weight: 400;
+            margin-top: 15px;
+            color: #939393;
+        }
+
+    .threeblocks {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /*----FAQ-----*/
+
+    .faq {
+        display: none;
+    }
+
+
+
+    /*---FOOTER --*/
+
+    footer {
+        width: 100%;
+        background: rgb(240, 244, 247);
+        min-height: 350px;
+        padding-top: 6px;
+        padding-bottom: 23px;
+    }
+
+    .top-footer {
+        width: 98%;
+        margin: 40px auto;
+        display: flex;
+        border-bottom: solid 1px #d4d4d4;
+        padding-bottom: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .middle-footer {
+        width: 98%;
+        margin: 40px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section-footer-25 {
+        width: 98%;
+        color: #212121;
+    }
+
+        .section-footer-25 > ul {
+            list-style: none;
+            font-family: 'Barlow', sans-serif;
+        }
+
+            .section-footer-25 > ul > li {
+                cursor: pointer;
+            }
+
+    .section-footer-50 {
+        width: 98%;
+        color: #212121;
+    }
+
+        .section-footer-50 > ul {
+            list-style: none;
+            font-family: 'Barlow', sans-serif;
+        }
+
+
+
+    .social-icon {
+        margin: 30px 15px 0 15px;
+        color: rgb(108, 108, 108);
+        cursor: pointer;
+        font-size: 23px;
+    }
+
+        .social-icon:hover {
+            color: #43ceba;
+        }
+
+    .footer-contact {
+        padding: 2px 36px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+    }
+
+    /*---INSCRIPTION ---*/
+
+    .inscription-window {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        background: linear-gradient(to bottom,#f0f4f7 0,#fff 49%,#fff 100%);
+        z-index: 9999;
+        overflow-y: scroll;
+        display: none;
+    }
+
+    #form {
+        display: none;
+        animation: zoomin;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .inscription-form {
+        min-height: 600px;
+        background: rgb(255, 255, 255);
+        padding: 30px 30px 90px;
+        width: 100%;
+    }
+
+    .item-form {
+        width: 100%;
+    }
+
+    @keyframes zoomin {
+        0% {
+            transform: scale(0.5);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .input-type-text {
+        background: rgb(255, 255, 255);
+        border-top: none;
+        font-size: 19px;
+        padding: 14px 18px 14px 10px;
+        color: rgb(72, 115, 138);
+        margin-top: 0px;
+        transition: all 0.2s ease;
+        border-bottom: solid 2px rgb(203, 214, 224);
+        border-left: none;
+        border-right: none;
+        width: 100%;
+        margin-bottom: 37px;
+    }
+
+        .input-type-text:focus {
+            border-bottom: solid 2px rgb(102, 255, 179);
+        }
+
+    .line-form {
+        width: 100%;
+        position: relative;
+        display: inline-flex;
+        margin-top: 25px;
+    }
+
+    label {
+        margin-bottom: 10px;
+    }
+
+        label::before {
+            color: #43ceba;
+        }
+
+    .objet-input {
+        display: block;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 0;
+        background: rgb(251, 251, 251);
+        border: solid 1px rgb(206, 206, 206);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(206, 206, 206);
+        border-left-color: rgb(206, 206, 206);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(206, 206, 206);
+        border-left-color: rgb(206, 206, 206);
+        border-left-color: rgb(231, 231, 231);
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        border-bottom: none;
+        font-size: 19px;
+        padding: 10px 15px 12px 16px;
+        margin-top: 16px;
+    }
+
+    .message {
+        width: 100%;
+        min-height: 150px;
+        font-size: 19px;
+        border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        text-align: left;
+        padding: 10px 15px;
+        border-top-right-radius: 0;
+        background: rgb(251, 251, 251);
+        border: solid 1px rgb(206, 206, 206);
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: rgb(206, 206, 206);
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: rgb(231, 231, 231);
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0;
+    }
+
+    label::before {
+        color: #3f92cf;
+        margin-right: 12px !important;
+    }
+
+    /*---LOGIN---*/
+
+    #desktoplogin {
+        display: none;
+    }
+
+    #signmobile {
+        /*display: none;*/
+    }
+
+    .connexion-input {
+        background: white;
+        border: solid 1px #dedede;
+        font-size: 19px;
+        box-shadow: 0 4px 9px 0 rgba(23,28,33,.06);
+        border-radius: 5px;
+        padding: 14px 18px 14px 20px;
+        color: dimgray;
+        margin-top: 17px;
+        transition: all 0.2s ease;
+        width: 100%;
+    }
+
+
+        .connexion-input:focus {
+            box-shadow: 0 7px 15px 0 rgba(23, 28, 33, 0.10);
+            border-color: #43ceba;
+        }
+
+    #sign {
+        display: none;
+    }
+
+
+    #cta-login {
+        display: none;
+    }
+
+    .portal-header {
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    .register__wrapper {
+        position: relative;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    .register__form-wrapper {
+        position: relative;
+        -webkit-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+        height: auto;
+        z-index: 2;
+        overflow: visible;
+        margin-top: 80px;
+        border-right: 0;
+        min-height: calc(100vh - 80px);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .register__contract-wrapper {
+        position: absolute;
+        -webkit-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        z-index: 1;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+    .register__contract {
+        height: 100%;
+    }
+
+    .register__contract-backdrop {
+        height: 100%;
+        background-color: #fff;
+    }
+
+    .register__contract-backdrop-img {
+        display: none;
+    }
+
+    .register__contract-container {
+        height: 100%;
+        background-color: #fff;
+    }
+
+    .register__contract-wrapper--opened {
+        z-index: 3;
+    }
+
+    .register__contract-wrapper--opened .register__contract {
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    .register__contract-close {
+        position: fixed;
+        display: block;
+        z-index: 3;
+        top: 100px;
+        right: 0;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+        visibility: hidden;
+        font-size: 0;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid #333;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transition: all 0.4s ease 0.3s;
+        -moz-transition: all 0.4s ease 0.3s;
+        transition: all 0.4s ease 0.3s;
+    }
+
+    .register__contract-close:before,
+    .register__contract-close:after {
+        position: absolute;
+        content: '';
+        top: 48%;
+        left: 16%;
+        width: 70%;
+        height: 2px;
+        background-color: #333;
+    }
+
+    .register__contract-close:before {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .register__contract-close:after {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .register__contract-close--showed {
+        opacity: 1;
+        right: 30px;
+        visibility: visible;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+
+    .register__form-message-section {
+        padding: 0 60px;
+    }
+
+    .register__form-convention-btn {
+        color: #1f79e0;
+        pointer-events: auto;
+    }
+
+    .register__form-convention-btn:hover {
+        color: #1f79e0;
+    }
+
+    .register__form-convention-btn:focus {
+        outline: 0;
+        color: #1f79e0;
+        text-decoration: none;
+    }
+
+    input.register__form-control--checkbox:not(:checked),
+    input.register__form-control--checkbox:checked {
+        position: static;
+        left: auto;
+    }
+
+    .register__form-control--checkbox:not(:checked) + label,
+    .register__form-control--checkbox:checked + label {
+        padding-left: 10px;
+        display: inline;
+    }
+
+    .register__form-control--checkbox:not(:checked) + label:before,
+    .register__form-control--checkbox:checked + label:before {
+        content: none;
+    }
+
+    .register__form-control--checkbox:not(:checked) + label:after,
+    .register__form-control--checkbox:checked + label:after {
+        content: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .password-valid-message {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .register__form-wrapper {
+        -webkit-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .register__contract-container {
+        padding: 80px 30px 30px;
+    }
+
+    .register__contract-content {
+        padding-bottom: 150px;
+    }
+
+    .register__contract-title {
+        font-size: 24px;   
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .register__form-wrapper {
+        -webkit-flex: 0 0 95%;
+        flex: 0 0 95%;
+        max-width: 95%;
+    }
+
+    .register__form {
+        padding: 30px 15px;
+    }
+
+    .register__form-message-section {
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .register__form-wrapper {
+        -webkit-flex: 0 0 98%;
+        flex: 0 0 98%;
+        max-width: 98%;
+    }
+
+    .register__form {
+        padding: 30px 5px;
+    }
+
+    .register__form-message-section-title {
+        font-size: 40px;
+    }
+
+    .register__form-btn--green {
+        font-size: 14px;
+        padding: 12px 32px;
+    }
+    .register__form-control--checkbox:not(:checked) + label,
+    .register__form-control--checkbox:checked + label {
+        line-height: 25px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .logo {
+        width: 120px;
+    }
+
+    .register__form-btn--back {
+        font-size: 14px;
+    }
+}

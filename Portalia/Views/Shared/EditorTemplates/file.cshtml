@@ -1,0 +1,19 @@
+﻿@using Portalia.Extentions
+@model Portalia.Core.Entity.AttributeDetail
+
+@{
+    var userProfileAttribute = Model.UserProfileAttributes.FirstOrDefault();
+}
+<div data-is-required="@Model.IsRequired" id="@(Model.Name.RemoveSpace())" class="form-group">
+    <label>@Portalia.Resources.UserProfile.ResourceManager.GetString(Model.Name.RemoveSpace()) @Html.Raw(Model.IsRequired ? "<span class=\"text-danger\">*</span>" : "") </label>
+    <span class="input-group-btn">
+        <button class="btn btn-sm btn-prime file" style="padding: 6px 39px" data-url="@Url.Action("UploadUserProfile", "Manage", new {userId = userProfileAttribute.UserProfileId, attributeDetailId = Model.AttributeDetailId, userProfileAttributeId = userProfileAttribute.UserProfileAttributeId, attributeName = Model.Name})" data-type="@userProfileAttribute.AttributeDetail.Type" data-pk="@userProfileAttribute.UserProfileAttributeId">fichier</button>
+    </span>
+    @if (!string.IsNullOrEmpty(userProfileAttribute.Value))
+    {
+        <div id="@userProfileAttribute.UserProfileAttributeId">
+            <i class="fa fa-file"></i><a target="_black" href="@(string.IsNullOrEmpty(userProfileAttribute.Value) ? "" : Url.Action("Download", "Manage", new {userProfileAttributeId = userProfileAttribute.UserProfileAttributeId, userId = userProfileAttribute.UserProfile.IdentityUserId}))"> @userProfileAttribute.Value</a>
+            <a href="#" class="remove-user-document" data-id="@userProfileAttribute.UserProfileAttributeId" data-url="@Url.Action("UpdateUserProfile","Manage",new {pk= userProfileAttribute.UserProfileAttributeId, name = Model.Name, value = string.Empty })"><i class="fa fa-times text-danger"></i></a>
+        </div>
+    }
+</div>

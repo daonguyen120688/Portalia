@@ -1,0 +1,177 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portalia", "Portalia\Portalia.csproj", "{C02A5E17-8E5B-4343-8301-7B4A296906EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portalia.Core", "Portalia.Core\Portalia.Core.csproj", "{12B49DB1-2169-48BC-B9DD-40EEB6402129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portalia.Repository", "Portalia.Repository\Portalia.Repository.csproj", "{095E617C-7361-4A38-9D59-4CB930EF02C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portalia.Service", "Portalia.Service\Portalia.Service.csproj", "{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{D2390906-FCA6-4D14-92F4-74CEA0F4C070}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint1", "Sprint1", "{B1B29FD1-A583-44F4-A911-B24BBB0E74C4}"
+	ProjectSection(SolutionItems) = preProject
+		addTable.sql = addTable.sql
+		Sprint 01. 01 Update label of document types.sql = Sprint 01. 01 Update label of document types.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependency", "Dependency", "{D708C1D5-D315-4C13-9116-1EA0BE8FD821}"
+	ProjectSection(SolutionItems) = preProject
+		Dependency\MultiBranding.ApiClient.dll = Dependency\MultiBranding.ApiClient.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint4", "Sprint4", "{B4A280B2-4C57-4AAE-B7E0-A212AB482D53}"
+	ProjectSection(SolutionItems) = preProject
+		ChangeAttributeDetailName.sql = ChangeAttributeDetailName.sql
+		MyPaySlipFolder.sql = MyPaySlipFolder.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint5", "Sprint5", "{2CF96A3D-B248-4D65-82D5-31D70D9EBE85}"
+	ProjectSection(SolutionItems) = preProject
+		1.CreateBirthPlace.sql = 1.CreateBirthPlace.sql
+		10.AddNewDocumentType.sql = 10.AddNewDocumentType.sql
+		2.Currency.sql = 2.Currency.sql
+		3.RemoveBankType.sql = 3.RemoveBankType.sql
+		4.RemoveRenameBankAccount.sql = 4.RemoveRenameBankAccount.sql
+		5.RenameUserProfile.sql = 5.RenameUserProfile.sql
+		6.SetFrenchDefault.sql = 6.SetFrenchDefault.sql
+		7.UpdateDataSourceBirthPlaceField.sql = 7.UpdateDataSourceBirthPlaceField.sql
+		8.UpdateFileType.sql = 8.UpdateFileType.sql
+		9.UpdateNationality.sql = 9.UpdateNationality.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint9", "Sprint9", "{FEC268D4-3BF4-4B0F-A92E-543B8CC85131}"
+	ProjectSection(SolutionItems) = preProject
+		IsRequired.sql = IsRequired.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint13", "Sprint13", "{7627AB0F-FEB2-4D19-A836-96FB1AD43809}"
+	ProjectSection(SolutionItems) = preProject
+		1.CVManatory.sql = 1.CVManatory.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint14", "Sprint14", "{EFD5CFBB-9D66-4EF5-A63E-F4D286CAD022}"
+	ProjectSection(SolutionItems) = preProject
+		1.Document.sql = 1.Document.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sprint20", "sprint20", "{ECB48515-D629-4B39-9814-DB379EF75A75}"
+	ProjectSection(SolutionItems) = preProject
+		1.ChangeDescription.sql = 1.ChangeDescription.sql
+		2.NewForlder.sql = 2.NewForlder.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint27", "Sprint27", "{214849E1-F005-4AB2-8B65-DC28020F0D35}"
+	ProjectSection(SolutionItems) = preProject
+		UpdateUserStatus.sql = UpdateUserStatus.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sprint28", "Sprint28", "{8AED9338-77F0-4307-BF57-484999045A67}"
+	ProjectSection(SolutionItems) = preProject
+		1.SetDefaultDocument.sql = 1.SetDefaultDocument.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Secure API", "Secure API", "{48DBB7E6-E36F-4DC5-90BF-45AA3F477996}"
+	ProjectSection(SolutionItems) = preProject
+		SecureAPI.sql = SecureAPI.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DigitalSprint02", "DigitalSprint02", "{BB2936FA-197F-4DBF-ACC7-22FAF9B7773D}"
+	ProjectSection(SolutionItems) = preProject
+		Sprint02 - 01. Add new column to UserProfile.sql = Sprint02 - 01. Add new column to UserProfile.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DigitalSprint08", "DigitalSprint08", "{2B3F9541-D4E1-42D4-B706-C5B795DAA466}"
+	ProjectSection(SolutionItems) = preProject
+		Sprint 08. 01 - Add new column to User.sql = Sprint 08. 01 - Add new column to User.sql
+		Sprint 08. 02 - Add TrackingAction table.sql = Sprint 08. 02 - Add TrackingAction table.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DigitalSprint09", "DigitalSprint09", "{F3714E91-2347-4DDF-A59D-5A3D2F0F9CDD}"
+	ProjectSection(SolutionItems) = preProject
+		Add user status column.sql = Add user status column.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DigitalSprint10-auth", "DigitalSprint10-auth", "{6E4DCE46-F052-4704-854E-A979857D3BDC}"
+	ProjectSection(SolutionItems) = preProject
+		Add auth migration table.sql = Add auth migration table.sql
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portalia.Auth0Migration", "Portalia.Auth0Migration\Portalia.Auth0Migration.csproj", "{1D3DBADD-6DD4-493E-9593-101845F19D49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		INTE|Any CPU = INTE|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.INTE|Any CPU.ActiveCfg = INTE|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.INTE|Any CPU.Build.0 = INTE|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.QA|Any CPU.Build.0 = QA|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02A5E17-8E5B-4343-8301-7B4A296906EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.INTE|Any CPU.ActiveCfg = INTE|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.INTE|Any CPU.Build.0 = INTE|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.QA|Any CPU.Build.0 = QA|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B49DB1-2169-48BC-B9DD-40EEB6402129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.INTE|Any CPU.ActiveCfg = INTE|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.INTE|Any CPU.Build.0 = INTE|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.QA|Any CPU.Build.0 = QA|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095E617C-7361-4A38-9D59-4CB930EF02C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.INTE|Any CPU.ActiveCfg = INTE|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.INTE|Any CPU.Build.0 = INTE|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.QA|Any CPU.Build.0 = QA|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EB7728D-A8AC-461F-893F-39C8EAB5FFB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.INTE|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.INTE|Any CPU.Build.0 = Debug|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.QA|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.QA|Any CPU.Build.0 = Debug|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3DBADD-6DD4-493E-9593-101845F19D49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B1B29FD1-A583-44F4-A911-B24BBB0E74C4} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{B4A280B2-4C57-4AAE-B7E0-A212AB482D53} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{2CF96A3D-B248-4D65-82D5-31D70D9EBE85} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{FEC268D4-3BF4-4B0F-A92E-543B8CC85131} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{7627AB0F-FEB2-4D19-A836-96FB1AD43809} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{EFD5CFBB-9D66-4EF5-A63E-F4D286CAD022} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{ECB48515-D629-4B39-9814-DB379EF75A75} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{214849E1-F005-4AB2-8B65-DC28020F0D35} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{8AED9338-77F0-4307-BF57-484999045A67} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{48DBB7E6-E36F-4DC5-90BF-45AA3F477996} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{BB2936FA-197F-4DBF-ACC7-22FAF9B7773D} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{2B3F9541-D4E1-42D4-B706-C5B795DAA466} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{F3714E91-2347-4DDF-A59D-5A3D2F0F9CDD} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+		{6E4DCE46-F052-4704-854E-A979857D3BDC} = {D2390906-FCA6-4D14-92F4-74CEA0F4C070}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41840B7C-DB92-4884-91E5-57CC5984478B}
+	EndGlobalSection
+EndGlobal

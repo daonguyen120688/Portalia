@@ -1,0 +1,34 @@
+{
+  "MessageID": 1917,
+  "ApplicationName": "Portalia",
+  "ApplicationId": 435,
+  "Name": "NotifyDirectorForReview",
+  "HoldingId": 13,
+  "IsMultibranding": false,
+  "IsConfidential": false,
+  "LayoutId": 11,
+  "Tags": "@Model.Username;@Model.Email;@Model.ARPUrl;@Model.WCUrl",
+  "Recipients": "procher@portalia.fr",
+  "RecipientsCc": null,
+  "RecipientsBcc": null,
+  "FromAddress": "contact@portalia.fr",
+  "ReplyTo": null,
+  "CreatedDate": "2019-04-10T09:09:19.5332673",
+  "UpdatedDate": "2019-05-29T03:55:46.3701934",
+  "CreatedById": 8153,
+  "UpdatedById": 11463,
+  "MailDelegationStatusId": null,
+  "MessageTemplateLanguages": [
+    {
+      "MessageLanguageID": 2330,
+      "Subject": "[Portalia] Un nouveau formulaire d’information Work Contract a été jouté",
+      "Content": "<p>Bonjour,<br></p>\r\n\r\n<p class=\"MsoNormal\"><span lang=\"FR\">L’utilisateur <span style=\"font-weight: bold;\">@Model.Username - <a href=\"mailto:@Model.Email\" target=\"_blank\">@Model.Email</a></span><b>&nbsp;</b>vient d’envoyer <a href=\"@Model.WCUrl\" target=\"_blank\">son formulaire d’information Work Contract</a>.<o:p></o:p></span></p>\r\n\r\n<p class=\"MsoNormal\">Pour créer un contrat de travail pour ce candidat allez sur <a href=\"@Model.ARPUrl\" target=\"_blank\">l'application WorkContract</a>.</p>\r\n\r\n<p class=\"MsoNormal\"><span lang=\"FR\">Cordialement,<o:p></o:p></span></p>\r\n\r\n<p></p>\r\n\r\n<p class=\"MsoNormal\"><span lang=\"EN-GB\">Le bot Portalia<o:p></o:p></span></p>",
+      "LanguageID": "en",
+      "CreatedDate": "2019-04-10T09:09:19.570278",
+      "UpdatedDate": "2019-05-29T03:24:47.5634626",
+      "CreatedById": 8153,
+      "UpdatedById": 11463
+    }
+  ],
+  "PriorityId": 2
+}

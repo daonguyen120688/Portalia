@@ -1,0 +1,47 @@
+﻿1. After build the windows service project, navigate to /bin/Debug and copy all files to desired directory.
+2. Copy file RemindCandidateToSubmitWorkContract.bat to desired directory.
+3. Install windows service
+
+- Open cmd (run as administrator)
+- Navigate to "C:\Windows\Microsoft.NET\Framework\v4.0.30319"
+- Run this command: installutil <your directory>/Portalia.WindowsService.exe
+- DONE
+
+*** NOTE: to uninstall windows service, run this: installutil /u <your directory>/Portalia.WindowsService.exe
+
+After installation, you can check the service appear in Services with the name: [Portalia] Send email to remind candidate to submit their WC
+
+4. Create task scheduler
+
+- Open "Task Scheduler" (you can input the name to search bar of Windows)
+- On the right panel, click "Create Task..."
+
+* In General tab:
+
+- Input name: [Portalia] Send mail to remind candidate to submit Work Contract
+- Input description: [Portalia] When user has not submitted the WorkContract info form after 24 hours since the last time the form is saved.
+- Check "Run whether user is logged on or not"
+- Check "Run with highest privileges"
+
+* In Triggers tab:
+
+- Click "New" to create new trigger
+- In Settings section, check "Daily" option
+- In Advanced settings section:
++ Check "Repeat task every" and set back to 5 minutes, "for a duration of" set to "Indefinitely". Leave the rest as default.
+- Click OK to create.
+
+* In Actions tab:
+
+- Browse and select the file RemindCandidateToSubmitWorkContract.bat
+- Click "OK"
+
+* The rest tabs leave as default
+
+After all done, click "OK" to create Task
+
+5. Enable the task
+
+- Now, you can see your task "[Portalia] Send mail to remind candidate to submit Work Contract" appear on the list.
+- Right click and choose "Enable"
+- DONE

@@ -1,0 +1,381 @@
+﻿#edmLoader {
+	z-index: 9999;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	display: none;
+}
+#defaultCategory {
+	margin-bottom: 10px;
+}
+
+/************Document drop***************/
+#drop-backdrop, #drop-target
+{
+	position: absolute;
+	width: 90%;
+	height: 100px;
+}
+#drop-target
+{
+	border: 1px dashed #aaa;
+}
+#drop-backdrop .text
+{
+	font-size: 20px;
+	width: 250px;
+	margin: 40px auto 0 auto;
+	position: relative;
+	text-align: center;
+}
+#documentUpload.uploading #drop-backdrop {
+	display: none;
+}
+.dragged {
+	color: white;
+	width: 96%;
+	background-color: cornflowerblue;
+}
+  
+#query + span.add-on {
+	cursor: pointer;
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+}
+  
+#query + span.add-on:hover {
+	background-color: #eaeaea;
+	background-image: none;
+}
+  
+.indexTitle {
+	font-weight: bold;
+	font-size: 22px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-right: 25px;
+	float: left;
+}
+  
+.popup {
+	position: fixed;
+	top: 65px;
+	right: 30px;
+	width: 500px;
+}
+
+.height37px {
+	height: 37px;
+}
+
+
+.heightmix36px {
+	height: 36px ;
+}
+
+/* IE 10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.heightmix36px {
+		height: 37px;
+	}
+}
+
+.marginleft25 {
+	margin-left: 25%;
+}
+
+.marginleft45 {
+	margin-left: 45%;
+}
+
+.word-break-normal {
+	word-break: normal !important;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-right:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/**************End Document Drop************/
+
+/**** Preview ****/
+#modalPreview div.modal-dialog 
+{
+	width: 80% !important;
+	max-width: 90%;
+}
+
+@media screen and (min-width: 500px) {
+	#modalPreview div.modal-dialog {
+	   width: 80% !important;
+	   min-width: 400px;
+	   max-width: 90%;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	#modalPreview div.modal-dialog {
+	   width: 75% !important;
+	   min-width: 700px;
+	   max-width: 50%;
+	}
+}
+
+#modalPreview  div.modal-content  img {
+	max-width: 100% !important;
+}
+/**** End Preview ***/
+
+/**** Begin FileUploader ***/
+.fileUpload {
+	height: 100px; 
+	border: 1px dashed #aaa; 
+	text-align: center
+}
+.fileUpload #drop-backdrop {
+	position: relative;
+}
+.fileUpload.uploading #drop-backdrop {
+	display: none;
+}
+
+.fileUpload label {
+
+	margin-top: 50px;
+}
+.fileUpload input {
+	display: none;
+	margin: 0 auto;
+}
+
+.box {
+	font-size: 1.25rem;
+	position: relative;
+	padding: 30px 20px;
+}
+
+.box.has-advanced-upload {
+	outline: 2px dashed #92b0b3;
+	outline-offset: -10px;
+	-webkit-transition: outline-offset .15s ease-in-out,background-color .15s linear;
+	transition: outline-offset .15s ease-in-out,background-color .15s linear;
+}
+
+.box.is-dragover {
+	outline-offset: -20px;
+	outline-color: #c8dadf;
+	color: #fff;
+	background-color: #6495ed;
+}
+
+.box-dragndrop, .box-icon {
+	display: none;
+}
+
+.box.has-advanced-upload .box-dragndrop {
+	display: inline;
+}
+
+.box.has-advanced-upload .box-icon {
+	width: 100%;
+	height: 60px;
+	fill: #92b0b3;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.box.has-advanced-upload.is-dragover .box-icon {
+	fill: #fff;
+}
+
+.box.is-uploading .box-input, .box.is-success .box-input, .box.is-error .box-input, .box.is-init .box-input {
+	visibility: hidden;
+}
+
+.box-uploading, .box-success, .box-error, .box-init {
+	display: none;
+}
+
+.box.is-uploading .box-uploading, .box.is-success .box-success, .box.is-error .box-error, .box.is-init .box-init {
+	display: block;
+	position: absolute;
+	top: 65%;
+	right: 0;
+	left: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.box-uploading {
+	font-style: italic;
+}
+
+.box-success {
+	-webkit-animation: appear-from-inside .25s ease-in-out;
+	animation: appear-from-inside .25s ease-in-out;
+}
+
+@-webkit-keyframes appear-from-inside {
+	from {
+		-webkit-transform: translateY(-50%) scale(0);
+	}
+
+	75% {
+		-webkit-transform: translateY(-50%) scale(1.1);
+	}
+
+	to {
+		-webkit-transform: translateY(-50%) scale(1);
+	}
+}
+
+@keyframes appear-from-inside {
+	from {
+		transform: translateY(-50%) scale(0);
+	}
+
+	75% {
+		transform: translateY(-50%) scale(1.1);
+	}
+
+	to {
+		transform: translateY(-50%) scale(1);
+	}
+}
+
+.box-restart {
+	font-weight: 700;
+}
+
+.box-restart:focus, .box-restart:hover {
+	color: #39bfd3;
+}
+
+.js .box-file {
+	overflow: hidden;
+	-ms-opacity: 0;
+	opacity: 0;
+	z-index: 1;
+}
+
+.js .box-file + label {
+	max-width: 80%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.js .box-file + label:hover strong, .box-file:focus + label strong, .box-file.has-focus + label strong {
+	color: #39bfd3;
+}
+
+.js .box-file + label:hover strong .box-upload, .box-file:focus + label strong .box-upload, .box-file.has-focus + label strong .box-upload {
+	text-decoration: underline;
+}
+
+.box-upload {
+	text-decoration: underline;
+}
+
+.js .box-file:focus + label, .js .box-file.has-focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.js .box-file + label * {
+}
+
+.no-js .box-file + label {
+	display: none;
+}
+
+.no-js .box-button {
+	display: block;
+}
+
+.box-button {
+	display: block;
+	padding: 8px 16px;
+	width: 6em;
+	margin: 0 auto 0;
+}
+
+.box-button:hover, .box-button:focus {
+	background-color: #0f3c4b;
+}
+/**** End FileUploader ***/
+
+/**** Begin jquery.guillotine ***/
+body.guillotine-dragging, body.guillotine-dragging * {
+  cursor: move !important;
+  cursor: -webkit-grabbing !important;
+  cursor:    -moz-grabbing !important;
+	/* ReSharper disable InvalidValue */
+  cursor:         grabbing !important;
+  cursor: grabbing, move;  /* IE hack */
+	/* ReSharper restore InvalidValue */
+}
+
+.guillotine-window {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor:    -moz-grab;
+	/* ReSharper disable InvalidValue */
+  cursor:         grab;
+  cursor: grab, move;  /* IE hack */
+	/* ReSharper restore InvalidValue */
+}
+
+.guillotine-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.guillotine-canvas > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.guillotine-sample {
+  position: absolute !important;
+  top: -100000px     !important;
+  left: -100000px    !important;
+  width: auto        !important;
+  height: auto       !important;
+}
+
+/**** End jquery.guillotine ***/
+
+.box-error {
+    color: red;
+    font-weight: bolder;
+}
+
+.box-init {
+    color: red;
+    font-weight: bolder;
+}

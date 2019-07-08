@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity
+@using Newtonsoft.Json
+@using Portalia.Core.Enum
+@model Portalia.ViewModels.DocumentViewModel
+
+
+<div class="row">
+    <div class="col-sm-12">
+        @if ((User.IsInRole("Administrator") || Model.FolderType == FolderType.Other || Model.FolderType == FolderType.MyProject) && Model.FolderType != FolderType.MyOpportunities)
+        {
+            <a class="btn btn-outline top10" id="upload-document" data-url="@Url.Action("UploadDocumentForUser", "Proposal", new {userId = Model.UserId, proposalId = Model.ProposalId, folderType = Model.FolderType})">@Portalia.Resources.Proposal.CreateNewDocument</a>
+        }
+    </div>
+</div>
+<div class="row row-fluid top10 documents">
+    <div class="col-sm-12">
+        @if (Model.FolderType != FolderType.MyOpportunities)
+        {
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        @if (Model.FolderType == FolderType.MyProject)
+                        {
+                            <td colspan="3">
+                                <i class="fa fa-file"></i><a target="_blank" rel="noopener" href="~/Content/Proposal/ProjectProposal.pdf">Project proposal document</a>
+                            </td>
+                        }
+                    </tr>
+                    @foreach (var document in Model.Documents)
+                    {
+                        <tr>
+                            <td>
+                                <i class="fa fa-file"></i>
+                                @if (!document.ProposalId.HasValue)
+                                {
+                                    <a target="_black" href="@Url.Action("DownloadDefault", new {document.DocumentId})"> @document.Name</a>
+                                }
+                                else
+                                {
+                                    <a target="_black" href="@Url.Action("Download", new {document.DocumentId, userId = Model.UserId})"> @document.Name</a>
+                                }
+                            </td>
+                            <td>@document.CreatedDate.ToShortDateString()</td>
+                            @if ((User.IsInRole("Administrator") || Model.FolderType == FolderType.Other || Model.FolderType == FolderType.MyProject) && (document.ProposalId.HasValue))
+                            {
+                                <td>
+                                    <a href="#" data-url-delete="@Url.Action("DeleteDocument", "Document")" data-document="@JsonConvert.SerializeObject(document)" class="delete-document btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+
+            <a target="_black" href="https://www.littlebigconnection.com/fr/">
+                <img src="https://cdn.o2f-it.com/16387/littlebigicon_JPG" />
+            </a>
+
+        }
+    </div>
+</div>
+
+
+<script src="~/Scripts/DocumentManagement/document-management.js"></script>

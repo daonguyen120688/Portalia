@@ -1,0 +1,50 @@
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+packages/*
+/Portalia/UserDocuments
+/Portalia/UserProfile
+Portalia/Content/font-awesome.css
+Portalia/Content/fonts/fontawesome-webfont.woff2
+Portalia/Content/images/2017 01 09 Email template_LBC footer 1.png
+Portalia/Content/images/2017 01 09 Email template_LBC footer 2.png
+Portalia/Content/images/2017 01 09 Email template_LBC footer 3.png
+Portalia/Content/images/2017 01 09 Email template_LBC footer 4.png
+Portalia/Content/images/2017 01 09 Email template_LBC footer 5.png
+Portalia/Content/images/2017 01 09 Email template_LBC template.png
+Portalia/Content/images/2017 01 09 Email template_LBCheader.png
+Portalia/Content/images/2017 01 09 Email template_Portalia Template.png
+Portalia/Content/images/2017 01 09 Email template_Portalia footer.png
+Portalia/Content/images/2017 01 09 Email template_Portalia header.png
+Portalia/logs/log.txt
+/HTML/
+/.vs/
+/Portalia/Properties/PublishProfiles/CustomProfile.pubxml
+/Portalia/logs/log.txt.1
+/Portalia/logs

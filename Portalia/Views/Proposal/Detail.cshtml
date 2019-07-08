@@ -1,0 +1,116 @@
+﻿@using System.Resources
+@using Portalia.Core.Enum
+@using Portalia.Resources
+@model Portalia.ViewModels.Proposals.ProposalDetailViewModel
+<header id="head" class="secondary"></header>
+@{
+    //var canSeeMenu = Model.CanSeeMenu;
+    //var canSeeContract = true;//alway display full tab as legal terms
+
+    // For desktop
+    var selectedClass = "sub-menu__item--active";
+    var isMyProjectSelectedClass = Model.Document?.FolderType == FolderType.MyProject ? selectedClass : string.Empty;
+    var isActivityReportSelectedClass = Model.Document?.FolderType == FolderType.ActivityReport ? selectedClass : string.Empty;
+    var isMyPayslipSelectedClass = Model.Document?.FolderType == FolderType.MyPaySlip ? selectedClass : string.Empty;
+    var isMyContractSelectedClass = Model.Document?.FolderType == FolderType.MyContract ? selectedClass : string.Empty;
+    var isMyInvoicesSelectedClass = Model.Document?.FolderType == FolderType.MyInvoices ? selectedClass : string.Empty;
+    var isMyEndOfContractDocumentsSelectedClass = Model.Document?.FolderType == FolderType.MyEndOfContractDocuments ? selectedClass : string.Empty;
+    var isReserveAccountSelectedClass = Model.Document?.FolderType == FolderType.ReserveAccount ? selectedClass : string.Empty;
+    var isOtherSelectedClass = Model.Document?.FolderType == FolderType.Other ? selectedClass : string.Empty;
+
+    // For mobile
+    var selectedClassOnMobile = "sub-menu__mobile__menu__item--selected";
+    var isMyProjectSelectedClassOnMobile = Model.Document?.FolderType == FolderType.MyProject ? selectedClassOnMobile : string.Empty;
+    var isActivityReportSelectedClassOnMobile = Model.Document?.FolderType == FolderType.ActivityReport ? selectedClassOnMobile : string.Empty;
+    var isMyPayslipSelectedClassOnMobile = Model.Document?.FolderType == FolderType.MyPaySlip ? selectedClassOnMobile : string.Empty;
+    var isMyContractSelectedClassOnMobile = Model.Document?.FolderType == FolderType.MyContract ? selectedClassOnMobile : string.Empty;
+    var isMyInvoicesSelectedClassOnMobile = Model.Document?.FolderType == FolderType.MyInvoices ? selectedClassOnMobile : string.Empty;
+    var isMyEndOfContractDocumentsSelectedClassOnMobile = Model.Document?.FolderType == FolderType.MyEndOfContractDocuments ? selectedClassOnMobile : string.Empty;
+    var isReserveAccountSelectedClassOnMobile = Model.Document?.FolderType == FolderType.ReserveAccount ? selectedClassOnMobile : string.Empty;
+    var isOtherSelectedClassOnMobile = Model.Document?.FolderType == FolderType.Other ? selectedClassOnMobile : string.Empty;
+    var selectedFolderTypeOnMobile = new ResourceManager(typeof(Proposal)).GetString(Model.Document?.FolderType.ToString());
+}
+<ul class="sub-menu document-tab"  data-employee-status="@Model.EmployeeStatus" data-is-employee="@Model.IsEmployee">
+    <li class="sub-menu__item @isMyProjectSelectedClass">
+        <a class="sub-menu__item-link" 
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyProject, userId = @Model.UserId})">@Portalia.Resources.Proposal.ProposalMyProject</a>
+    </li>
+    <li class="sub-menu__item @isActivityReportSelectedClass">
+        <a class="sub-menu__item-link" 
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.ActivityReport, userId = @Model.UserId})">@Portalia.Resources.Proposal.ActivityReport</a>
+    </li>
+    <li class="sub-menu__item @isMyPayslipSelectedClass">
+        <a class="sub-menu__item-link" 
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyPaySlip, userId = @Model.UserId})">@Portalia.Resources.Proposal.MyPaySlip</a>
+    </li>
+    <li class="sub-menu__item @isMyContractSelectedClass">
+        <a class="sub-menu__item-link" 
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyContract, userId = @Model.UserId})">@Portalia.Resources.Proposal.Mycontracts</a>
+    </li>
+    <li class="sub-menu__item @isMyInvoicesSelectedClass">
+        <a class="sub-menu__item-link" 
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyInvoices, userId = @Model.UserId})">@Portalia.Resources.Proposal.MyInvoices</a>
+    </li>
+    <li class="sub-menu__item @isMyEndOfContractDocumentsSelectedClass">
+        <a class="sub-menu__item-link"
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyEndOfContractDocuments, userId = @Model.UserId})">@Portalia.Resources.Proposal.MyEndOfContractDocuments</a>
+    </li>
+    <li class="sub-menu__item @isReserveAccountSelectedClass">
+        <a class="sub-menu__item-link"
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.ReserveAccount, userId = @Model.UserId})">@Portalia.Resources.Proposal.ResearveAccount</a>
+    </li>
+    <li class="sub-menu__item @isOtherSelectedClass">
+        <a class="sub-menu__item-link" 
+           href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.Other, userId = @Model.UserId})">@Portalia.Resources.Proposal.Other</a>
+    </li>
+    <li class="sub-menu--indicator"></li>
+</ul>
+
+<div class="dropdown sub-menu__mobile">
+    <button class="btn btn-outline dropdown-toggle sub-menu__mobile__selected" type="button" data-toggle="dropdown">
+        <span class="sub-menu__mobile__selected-name">@selectedFolderTypeOnMobile</span>
+        <i class="fas fa-angle-down sub-menu__mobile__selected-icon"></i>
+    </button>
+    <ul class="dropdown-menu sub-menu__mobile__menu">
+        <li class="sub-menu__mobile__menu__item @isMyProjectSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyProject, userId = @Model.UserId})">@Portalia.Resources.Proposal.ProposalMyProject</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isActivityReportSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.ActivityReport, userId = @Model.UserId})">@Portalia.Resources.Proposal.ActivityReport</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isMyPayslipSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyPaySlip, userId = @Model.UserId})">@Portalia.Resources.Proposal.MyPaySlip</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isMyContractSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyContract, userId = @Model.UserId})">@Portalia.Resources.Proposal.Mycontracts</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isMyInvoicesSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyInvoices, userId = @Model.UserId})">@Portalia.Resources.Proposal.MyInvoices</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isMyEndOfContractDocumentsSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.MyEndOfContractDocuments, userId = @Model.UserId})">@Portalia.Resources.Proposal.MyEndOfContractDocuments</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isReserveAccountSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.ReserveAccount, userId = @Model.UserId})">@Portalia.Resources.Proposal.ResearveAccount</a>
+        </li>
+        <li class="sub-menu__mobile__menu__item @isOtherSelectedClassOnMobile">
+            <a class="sub-menu__mobile__menu__item-link"
+               href="@Url.Action("Documents", "Proposal", new {proposalId = Model.ProposalId, folderType = FolderType.Other, userId = @Model.UserId})">@Portalia.Resources.Proposal.Other</a>
+        </li>
+    </ul>
+</div>
+
+<div id="space-content" class="proposal-space">
+    @Html.Partial("_Documents", Model.Document)
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/Proposal")
+}

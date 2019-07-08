@@ -1,0 +1,110 @@
+﻿@using Portalia.Extentions
+@model Tuple<List<DateTime>, List<DateTime>>
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Demande de rendez-vous</h4>
+</div>
+<div class="modal-body">
+    <div class="text-center">
+        <div class="btn-group">
+            <div class="span5 col-md-5 col-lg-offset-3" id="sandbox-container">
+                <div class="input-daterange input-group" id="datepicker">
+                    <input placeholder="from date" data-format="dd/mm/yyyy" type="text" class="input-sm form-control" id="dateFrom" name="start">
+                    <span class="input-group-addon">to</span>
+                    <input placeholder="to date" data-format="dd/mm/yyyy" type="text" class="input-sm form-control" id="dateTo" name="end">
+                </div>
+            </div>
+            <div class="form-group">
+                <input data-dismiss="modal" class="btn btn-default" type="button" name="name" id="btn-request" data-url="@Url.Action("GetSuggestTime")" value="demander" />
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var date in Model.Item1)
+                {
+                    <th>
+                        @date.DayOfWeek <br />
+                        @date.ToString("dd-MM-yyyy") (6PM - 7Pm)
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody id="time">
+            <tr>
+                @foreach (var item in Model.Item2)
+                {
+                    if (item == DateTime.MinValue)
+                    {
+                        <td>
+                            <span class="label label-danger">Occupé</span>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a href="#" class="send-request-appointment" data-url="@Url.Action("SendRequestAppointment", "Home", new {date = @item.ToString("G")})"><span class="label label-info">envoyer une demande</span></a>
+                        </td>
+                    }
+                }
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+</div>
+<script>
+    $(function () {
+        //$('#sandbox-container .input-daterange').datepicker({
+        //    format: 'dd/mm/yyyy',
+        //    locale: "fr",
+        //    startDate: new Date(),
+        //    endDate: '+7d',
+        //    daysOfWeekDisabled: [0, 6],
+        //    autoclose: true
+        //});
+    
+        var $start = $(".input-daterange").find('#dateFrom');
+        var $end = $(".input-daterange").find('#dateTo');
+
+        $(".input-daterange").datepicker({
+            autoclose: true,
+            startDate: new Date(),
+            format: 'dd/mm/yyyy',
+            daysOfWeekDisabled: [0, 6],
+        });
+
+        $end.on('show', function (e) {
+            var date = $start.datepicker('getDate');
+            date.setDate(date.getDate() + 7);
+            $end.datepicker('setEndDate', date);
+        });
+
+
+        $(".send-request-appointment").click(function() {
+            var url = $(this).data().url;
+            helper.ShowModal({
+                onInit: function () {
+                    return true;
+                },
+                url: url
+            });
+        });
+        $("#btn-request").click(function() {
+            var dateFrom = $("#dateFrom").val();
+            var dateTo = $("#dateTo").val();
+            var url = `${$(this).data().url}?datefrom=${dateFrom}&dateTo=${dateTo}`;
+            helper.ShowModal({
+                onInit: function () {
+                    return true;
+                },
+                url: url,
+                modalWidth: 1000
+            });
+        });
+    });
+</script>

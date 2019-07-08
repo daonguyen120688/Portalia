@@ -1,0 +1,1 @@
+update [dbo].[AttributeDetail] set DataSourceUrl = '/DataSource/BirthPlace' where AttributeDetailId = 6

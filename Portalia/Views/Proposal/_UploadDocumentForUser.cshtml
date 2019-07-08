@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNet.Identity
+@using Portalia.Core.Enum
+@using Portalia.ViewModels
+@model UserDocumentViewModel
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Télécharger des fichiers</h4>
+</div>
+<div class="modal-body">
+    @Html.Partial("_FileUpload", new FileUploadViewModel
+{
+    UrlAction = Url.Action("UploadFile", "Document",new { userId = Model.UserId, proposalId = Model.ProposalId, folderType = Model.FolderType})
+})
+    <div class="alert alert-warning" id="messageContent" style="display: none">
+        <strong>Attention!</strong> Indicates a warning that might need attention.
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+</div>

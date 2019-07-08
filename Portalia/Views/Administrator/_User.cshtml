@@ -1,0 +1,152 @@
+﻿@using Portalia.Core.Enum
+@using Portalia.Core.Extensions
+
+@model Portalia.ViewModels.Users.PagingUserItemViewModel
+
+@{ 
+    var workContractStatusText = Model.WorkContractStatusId.GetDisplayName();
+    var closeWorkContractUrl = Url.Action("CloseWorkContract", "WorkContract", new {workContractId = Model.WorkContractId, employeeId = Model.Id});
+    var openWorkContractUrl = Url.Action("OpenWorkContract", "WorkContract", new {employeeId = Model.Id});
+    string workContractUrl = Url.Action("Index", "WorkContract", new { workContractId = Model.WorkContractId });
+    var uniqueRowId = Guid.NewGuid().ToString();
+}
+
+<tr id="tr-@uniqueRowId">
+    <td class="user">
+        <div class="user-wrapper">
+            <div class="user-image-wrapper">
+                <img class="user-image" src="@Html.Action("GetUserPicture", "Manage", new { userId = Model.Id })" alt="">
+            </div>
+            <div class="user-info-wrapper">
+                <a class="user-name" href="mailto:@Model.Email">@Model.FullName</a>
+                @if (Model.IsNew)
+                {
+                    <span data-toggle="tooltip" title="Hey I'm new comer!" aria-hidden="true">
+                        <i class="fas fa-hand-spock"></i>
+                    </span>
+                }
+            </div>
+        </div>
+    </td>
+    <td class="create-date">@Model.CreatedDate</td>
+    <td class="user-status">
+        @if (Model.IsActive)
+        {
+            <span class="label label-success">active</span>
+        }
+        else
+        {
+            <span class="label label-default">inactive</span>
+        }
+    </td>
+    <td class="type">
+        @if (Model.IsEmployee)
+        {
+            <span class="label label-success">Employee</span>
+        }
+        else
+        {
+            <span class="label label-default">Visitor</span>
+        }
+    </td>
+    <td class="email">
+        <a href="mailto:@Model.Email">@Model.Email</a>
+    </td>
+    <td class="percent">
+        @Model.PercentOfInfo %
+    </td>
+    <td class="form-action">
+        <a data-toggle="tooltip" title="Project" href="@Url.Action("MySpace", "Proposal", new {userId = Model.Id})" class="btn btn-success btn-sm">
+            <i class="fas fa-search-plus"></i>
+        </a>
+        <a data-toggle="tooltip" title="Candidate Info" href="@Url.Action("Index", "Manage", new {userProfileId = Model.Id})" class="btn btn-warning btn-sm">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+        <a href="@Url.Action("DeActiveUser", "Administrator", new {userId = Model.Id})" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash-alt"></i>
+        </a>
+    </td>
+    <td class="wc-status">
+        @switch (Model.WorkContractStatusId)
+        {
+            case WorkContractStatusEnum.PendingOnCandidate:
+            case WorkContractStatusEnum.PendingOnCandidateRevision:
+                <span class="wc-status__text wc-status__text--light-purple">@workContractStatusText</span>
+                break;
+            case WorkContractStatusEnum.Validated:
+                <span class="wc-status__text wc-status__text--purple">@workContractStatusText</span>
+                break;
+            case WorkContractStatusEnum.Disabled:
+                <span class="wc-status__text wc-status__text--grey">@workContractStatusText</span>
+                break;
+            case WorkContractStatusEnum.Uploaded:
+                <span class="wc-status__text wc-status__text--blue">@workContractStatusText</span>
+                break;
+            default:
+                <span class="wc-status__text wc-status__text--grey">N/A</span>
+                break;
+        }
+    </td>
+    <td class="wc-action">
+        @switch (Model.WorkContractStatusId)
+        {
+            case WorkContractStatusEnum.PendingOnCandidate:
+                <a class="wc-action-button wc_btn--close-contract" href="javascript:void(0);"
+                   data-url="@closeWorkContractUrl"
+                   data-employee-full-name="@Model.FullName"
+                   data-affected-row-id="#tr-@uniqueRowId">
+                    <i class="fas fa-lock"></i>
+                    <span>Close</span>
+                </a>
+                break;
+            case WorkContractStatusEnum.PendingOnCandidateRevision:
+                <a class="wc-action-button" href="@workContractUrl">
+                    <i class="fas fa-file-image"></i>
+                    <span>View</span>
+                </a>
+                <a class="wc-action-button wc_btn--close-contract" href="javascript:void(0);"
+                   data-url="@closeWorkContractUrl"
+                   data-employee-full-name="@Model.FullName"
+                   data-affected-row-id="#tr-@uniqueRowId">
+                    <i class="fas fa-lock"></i>
+                    <span>Close</span>
+                </a>
+                break;
+            case WorkContractStatusEnum.Validated:
+                <a class="wc-action-button" href="@workContractUrl">
+                    <i class="fas fa-file-image"></i>
+                    <span>View form</span>
+                </a>
+                <a class="wc-action-button wc_btn--upload-contract"
+                   href="javascript:void(0);"
+                   data-trigger-target="#contract-file-@uniqueRowId">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Upload contract</span>
+                </a>
+                <input type="file" class="hidden wc__file--contract"
+                       id="contract-file-@uniqueRowId"
+                       accept=".pdf,.doc,.docx"
+                       data-upload-url="@Url.Action("UploadWorkContract", "WorkContract")"
+                       data-fullname="@Model.FullName"
+                       data-user-id="@Model.Id"
+                       data-unique-id="@uniqueRowId" />//this field must be correct User Id
+                break;
+            case WorkContractStatusEnum.Disabled:
+                <a class="wc-action-button wc_btn--open-contract" href="javascript:void(0);"
+                   data-url="@openWorkContractUrl"
+                   data-employee-full-name="@Model.FullName"
+                   data-affected-row-id="#tr-@uniqueRowId">
+                    <i class="fas fa-unlock-alt"></i>
+                    <span>Open</span>
+                </a>
+                break;
+            case WorkContractStatusEnum.Uploaded:
+                <a class="wc-action-button" href="@Url.Action("DownloadDefault", "Proposal", new {documentId=Model.DocumentId})">
+                    <i class="fas fa-download"></i>
+                    <span>Download</span>
+                </a>
+                break;
+        }
+    </td>
+</tr>
+

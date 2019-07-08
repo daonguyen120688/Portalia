@@ -1,0 +1,126 @@
+.selector-ul {
+    padding: 0 25px 0px 25px;
+    width: 100%;
+    margin: 16px 0 0 0;
+    border-bottom: solid 1px rgb(218, 218, 218);
+}
+
+.espace-ul {
+    display: flex;
+    list-style: none;
+    padding-left:0;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.espace-ul > li {
+    font-weight:500;
+    margin: 0 10px;
+
+    text-align: center;
+    padding: 16px 21px;
+    cursor: pointer;
+    color:rgb(122, 122, 122);
+}
+
+.espace-ul > li:hover {
+
+    border-bottom: solid 2px rgb(211, 211, 211);
+}
+
+.espace-ul > li > p {
+    margin-left: 15px;
+    display: inline-block;
+}
+
+.menu-selected {
+    border-bottom: solid 2px rgb(51, 119, 196)  !important;
+    color: rgb(51, 119, 196) !important;
+}
+
+#projets {
+   
+    display: inline-flex;
+}
+
+.colum-projet {
+    width: 60%;
+    padding: 30px;
+}
+
+.list-projets {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.list-projets > h2 {
+font-size:20px;
+font-weight: 400;
+}
+
+.add-projets > h2 {
+    font-size:20px;
+    font-weight: 400;
+    }
+
+.projets {
+    display: inline-flex;
+    background: rgb(240, 244, 246);
+    padding: 15px 30px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.on {
+    background: rgb(251, 251, 251);
+    border: solid 1px rgb(231, 231, 231);
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: rgb(231, 231, 231);
+    border-left: solid 4px rgb(54, 203, 155);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0;
+}
+
+.projets > h3 {
+    margin-right: 20px;
+    min-width: 40%;
+
+}
+
+.projets > h4 {
+    margin-right: 20px;
+    min-width: 15%;
+}
+
+.projets > p {
+    margin-right: 20px;
+    min-width: 10%;
+}
+
+.add-projets {
+    padding: 30px;
+    width: 40%;
+    border-left: solid 1px rgb(221, 221, 221);
+    text-align: center;
+}
+
+.projet-download {
+    background:rgb(34, 123, 210);
+    padding:15px 25px;
+    border:none;
+    border-radius: 5px;
+    color:white;
+    cursor: pointer;
+    transition: 0.1s all ease;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
+
+.projet-download:hover {
+    background:rgb(34, 210, 157);
+
+    color:white;
+
+}

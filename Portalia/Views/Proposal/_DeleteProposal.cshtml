@@ -1,0 +1,18 @@
+﻿@model Portalia.Core.Entity.Proposal
+@using (Html.BeginForm("Delete", "Proposal"))
+{
+    @Html.HiddenFor(c => c.ProposalId)
+    @Html.HiddenFor(c => c.UserId)
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">@Portalia.Resources.Proposal.AreYouSureToDelete</h4>
+    </div>
+
+    <div class="modal-body">
+        <p>@Portalia.Resources.Proposal.ProjectName: @Model.ProjectName</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-danger btn-ok">@Portalia.Resources.Proposal.Delete</button>
+    </div>
+}

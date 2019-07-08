@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNet.Identity
+@using Portalia.Core.Enum
+@using Portalia.Resources
+@model Portalia.Core.Entity.Proposal
+@{
+    Layout = null;
+    var haveDocument = Model.Documents != null && Model.Documents.Any();
+}
+
+@Html.Hidden("CheckUserProfileValidationUrl", @Url.Action("CheckUserValidation", "Proposal", new { userId = Model.UserId }))
+<div id="smartwizard">
+    <input style="visibility: hidden" data-file-name="~/UserDocuments/@User.Identity.GetUserId()/Proposal_@Model." />
+    <ul>
+        <li><a href="#step-1">@string.Format(Proposal.Step, 1)<br /><small>@Proposal.DownLoadDocument</small></a></li>
+        <li><a href="#step-2">@string.Format(Proposal.Step, 2)<br /><small>@Proposal.UploadDocument</small></a></li>
+        <li><a href="#step-3">@string.Format(Proposal.Step, 3)<br /><small>Envoyer propostion</small></a></li>
+    </ul>
+
+    <div>
+        <div id="step-1" class="">
+            <div class="">
+                <p class="bg-info">
+                    Veuillez remplir le<a class="text-center" target="_black" href="@Url.Content("~/Content/Proposal/FichePreparative.pdf")">
+                        <i class="fa fa-file"></i>document
+                    </a>relatif à votre projet
+                </p>
+            </div>
+        </div>
+        <div id="step-2" class="">
+            <form class="dropzone" id="upload-document" data-url="@Url.Action("UploadFile", "Document", new {folderType = FolderType.MyProject, proposalId = Model.ProposalId, userId = Model.UserId})" method="post" enctype="multipart/form-data"></form>
+            <h5 style="display: @(haveDocument ? "block":"none")" id="user-project-documents">
+                <a target="_black" href="@Url.Action("Detail","Proposal",new { proposalId = Model.ProposalId })">
+                    <i class="fa fa-file-o" aria-hidden="true"></i> Mon document de projet
+                </a>
+            </h5>
+        </div>
+        <div id="step-3" class="">
+            <div id="proposal-success-alert" style="display: none" class="alert alert-success" role="alert"></div>
+            <div id="proposal-danger-alert" style="display: none" class="alert alert-danger" role="alert"></div>
+
+            <button type="button" class="btn btn-prime btnNormal" data-url="@Url.Action("UpdateProposalStatus", "Proposal", new {proposalId = Model.ProposalId, userId = Model.UserId})" id="btnSendProposal">Envoyer propostion</button>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.smartWizard.min.js"></script>
+<script src="~/Scripts/Proposal/proposal-wizard.js"></script>

@@ -1,0 +1,2 @@
+net stop RemindCandidateToSubmitWorkContract
+net start RemindCandidateToSubmitWorkContract

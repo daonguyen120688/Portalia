@@ -1,0 +1,34 @@
+{
+  "MessageID": 0,
+  "ApplicationName": "Portalia",
+  "ApplicationId": 435,
+  "Name": "NotifyDirectorForReview",
+  "HoldingId": 13,
+  "IsMultibranding": false,
+  "IsConfidential": false,
+  "LayoutId": 11,
+  "Tags": "@Model.Username",
+  "Recipients": "procher@portalia.fr",
+  "RecipientsCc": null,
+  "RecipientsBcc": null,
+  "FromAddress": "contact@portalia.fr",
+  "ReplyTo": null,
+  "CreatedDate": "2019-03-06T10:28:11.3257941",
+  "UpdatedDate": "2019-03-06T10:35:39.7781207",
+  "CreatedById": 11463,
+  "UpdatedById": 11463,
+  "MailDelegationStatusId": 1,
+  "MessageTemplateLanguages": [
+    {
+      "MessageLanguageID": 2321,
+      "Subject": "[Portalia] Un nouveau formulaire d’information Work Contract a été jouté",
+      "Content": "<p>Bonjour,<br></p><p class=\"MsoNormal\"><span lang=\"FR\">L’utilisateur <span style=\"font-weight: bold;\">@Model.Username</span><b>&nbsp;</b>vient d’envoyer sonformulaire d’information Work Contract.<o:p></o:p></span></p><p class=\"MsoNormal\">Pour créer un contrat de travail pour ce candidat allez sur l'application WorkContract.</p><p class=\"MsoNormal\"><span lang=\"FR\">Cordialement,<o:p></o:p></span></p><p></p><p class=\"MsoNormal\"><span lang=\"EN-GB\">Le botPortalia<o:p></o:p></span></p>",
+      "LanguageID": "en",
+      "CreatedDate": "2019-03-06T10:28:11.3257941",
+      "UpdatedDate": "2019-03-06T10:37:35.9700036",
+      "CreatedById": 11463,
+      "UpdatedById": 11463
+    }
+  ],
+  "PriorityId": 2
+}
